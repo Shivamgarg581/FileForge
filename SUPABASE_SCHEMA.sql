@@ -99,3 +99,64 @@ create table if not exists audit_log (
   payload jsonb,
   created_at timestamptz not null default now()
 );
+
+-- Multi-channel price intelligence
+create table if not exists price_observations (
+  id uuid primary key default gen_random_uuid(),
+  product_id uuid references products(id) on delete cascade,
+  channel text not null check (channel in ('official_retail','official_wholesale','mandi','local_shop','online')),
+  merchant text,
+  market_id uuid references markets(id) on delete set null,
+  price numeric(12,2) not null check (price >= 0),
+  quantity numeric(12,4) not null check (quantity > 0),
+  unit text not null,
+  normalized_price numeric(12,4),
+  currency text not null default 'INR',
+  source_url text,
+  source_name text,
+  observed_at timestamptz not null,
+  verification_status text not null default 'unverified',
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists price_observations_product_channel_time
+  on price_observations(product_id, channel, observed_at desc);
+
+create index if not exists price_observations_merchant_time
+  on price_observations(merchant, observed_at desc);
+
+create table if not exists product_identifiers (
+  id uuid primary key default gen_random_uuid(),
+  product_id uuid references products(id) on delete cascade,
+  identifier_type text not null check (identifier_type in ('gtin','ean','upc','sku','asin','isbn','mpn')),
+  identifier text not null,
+  source text,
+  created_at timestamptz not null default now(),
+  unique(identifier_type, identifier)
+);
+
+create table if not exists merchants (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  domain text,
+  channel text not null check (channel in ('online','local_shop')),
+  country text default 'IN',
+  active boolean not null default true,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists price_history_daily (
+  id uuid primary key default gen_random_uuid(),
+  product_id uuid references products(id) on delete cascade,
+  merchant_id uuid references merchants(id) on delete set null,
+  market_id uuid references markets(id) on delete set null,
+  channel text not null,
+  observation_date date not null,
+  min_price numeric(12,2),
+  avg_price numeric(12,2),
+  max_price numeric(12,2),
+  sample_count integer not null default 0,
+  created_at timestamptz not null default now(),
+  unique(product_id, merchant_id, market_id, channel, observation_date)
+);
