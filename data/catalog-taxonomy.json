@@ -363,7 +363,7 @@
     }
   ],
   "catalog_growth": {
-    "target_records": 100000,
+    "target_records": 1000000,
     "expansion_sources": [
       "licensed manufacturer/catalog feeds",
       "approved public datasets",
@@ -371,7 +371,45 @@
       "verified community observations",
       "barcode/GTIN mappings where licensing permits"
     ],
-    "price_rule": "Catalog membership does not create a price. A price requires a source, observation date, unit, market/context and verification state."
+    "price_rule": "Catalog membership does not create a price. A price requires a source, observation date, unit, market/context and verification state.",
+    "phase_target": "1,000,000+ product variants",
+    "category_targets": {
+      "grocery": 120000,
+      "vegetables": 8000,
+      "fruits": 8000,
+      "dairy": 20000,
+      "bakery_snacks": 40000,
+      "meat_seafood": 25000,
+      "household": 60000,
+      "personal_care": 60000,
+      "baby_care": 25000,
+      "pet_care": 15000,
+      "medicines_health": 150000,
+      "stationery_books": 70000,
+      "clothing": 100000,
+      "footwear": 60000,
+      "electronics": 90000,
+      "appliances": 40000,
+      "mobile_accessories": 40000,
+      "automotive": 70000,
+      "fuel": 5000,
+      "construction": 50000,
+      "gardening_agriculture": 45000,
+      "furniture": 30000,
+      "sports": 25000,
+      "travel": 15000,
+      "office_business": 30000,
+      "services": 25000
+    },
+    "index_strategy": [
+      "canonical product",
+      "brand",
+      "model/variant",
+      "pack size",
+      "identifier",
+      "merchant offer",
+      "market observation"
+    ]
   },
   "search_aliases": {
     "grocery": [
