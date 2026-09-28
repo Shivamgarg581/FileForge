@@ -86,298 +86,37 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 @media(max-width:620px){.feature-strip{grid-template-columns:repeat(2,1fr)}.offer-card{grid-template-columns:1fr}}
 </style></head>
 <body>
-<div class="splash" id="splash"><div class="splash-inner"><div class="splash-logo">PA</div><div class="splash-title">PriceAtlas</div><div class="splash-sub">Know the price before you buy.</div><div class="loader"><i></i></div></div></div>
-
-<header class="top"><div class="wrap nav" id="nav"><a class="brand" href="#home"><span class="mark">PA</span><span><b>PriceAtlas</b><small>Price intelligence for India</small></span></a><button class="menu" id="menu" aria-label="Open navigation">☰</button><nav class="navlinks" id="navlinks"></nav><div id="authSlot"></div></div></header>
-
-<div class="command"><button class="fab" id="quickAction" title="Quick actions" aria-label="Quick actions">+</button></div>
+<div class="splash" id="splash"><div><div class="splash-logo">FF</div><div class="splash-name">FileForge AI</div><div class="splash-sub">100+ everyday tools. One fast workspace.</div><div class="loader"><i></i></div></div></div>
+<header class="top"><div class="wrap nav"><a href="#home" class="brand"><span class="brand-mark">FF</span><span>FileForge AI<small>Files · PDF · Image · Text · Dev</small></span></a><button class="menu" id="menu">☰</button><nav class="navlinks" id="navlinks"></nav></div></header>
 <main id="app">
 <section class="route active" data-route="home"><div class="wrap">
-<div class="hero">
-<div class="card hero-main">
-<div class="eyebrow">EVIDENCE-AWARE PRICE INTELLIGENCE</div>
-<h1>Know the price <span style="color:var(--brand)">before</span> you buy.</h1>
-<p class="lead">Compare official reference prices, inspect historical movement, normalize quantities, and keep unknown or stale information visible instead of inventing local quotes.</p>
-<form class="search search-suggest" id="heroForm"><input id="heroInput" autocomplete="off" placeholder="Search product, brand, barcode, category…"><button class="btn">Search</button><div class="suggestions" id="heroSuggestions"></div></form>
-<div class="micro"><span>✓ Source + date shown</span><span>✓ Deterministic math</span><span>✓ No invented local prices</span></div><div id="affiliateDisclosure" class="small muted" style="margin-top:12px">Affiliate links may earn PriceAtlas a commission at no extra cost to you. Price evidence and comparison calculations are independent of commercial links.</div>
-</div>
-<aside class="card source">
-<div class="chip">OFFICIAL REFERENCE · CONSUMER AFFAIRS</div>
-<h2 id="officialName">Sugar</h2>
-<div id="officialDate" class="muted">Loading…</div>
-<div class="big" id="sugar">—</div>
-<div class="small muted">₹ / kg · national retail reference</div>
-<div class="twocol"><div class="mini"><span class="small muted">Onion</span><b id="onion">—</b><span class="small muted">₹ / kg</span></div><div class="mini"><span class="small muted">Tomato</span><b id="tomato">—</b><span class="small muted">₹ / kg</span></div></div>
-<a id="sourceLink" class="ghost" target="_blank" rel="noreferrer" style="margin-top:16px;text-align:center">View source ↗</a>
-</aside>
-</div>
-
-<div class="kpis" id="kpis"></div>
-
-<section class="section"><div class="section-head"><div><div class="eyebrow">MARKET PULSE</div><h2>What changed?</h2><div class="muted">Calculated from available dated observations.</div></div><button class="ghost" id="surprise">Find a surprise</button></div><div id="pulse" class="pulse"></div></section><section class="section ad-area"><div class="card panel ad-slot"><div class="small muted">ADVERTISEMENT</div><div class="muted" style="min-height:70px;display:grid;place-items:center">Ad space — activates after AdSense approval and publisher ID configuration.</div></div></section>
-
-<section class="section"><div class="section-head"><div><div class="eyebrow">EVERYDAY</div><h2>Reference prices</h2></div><a class="ghost" href="#search">View all →</a></div><div id="featured" class="grid"></div></section>
-
-
-<section class="section"><div class="section-head"><div><div class="eyebrow">ADVANCED INTELLIGENCE</div><h2>PriceAtlas control center</h2><div class="muted">Search, compare, monitor and act from one place.</div></div><div class="fresh"><span class="dot"></span><span class="small muted">Evidence-first mode</span></div></div><div class="panel-grid">
-<div class="card panel"><div class="chip">PRICE EXPLORER</div><h3>Find the product</h3><p class="muted">Search by name, brand, variant, category or identifier.</p><a class="btn" href="#search">Open explorer</a></div>
-<div class="card panel"><div class="chip">OFFER RADAR</div><h3>Compare channels</h3><p class="muted">Bring authorized online offers and verified local observations into one normalized view.</p><a class="btn" href="#markets">Open radar</a></div>
-<div class="card panel"><div class="chip">PRICE GUARD</div><h3>Watch a target</h3><p class="muted">Target-price alerts become active once your account and a real observation source are connected.</p><a class="btn" href="#product/sugar">Explore</a></div>
+<div class="hero"><div class="card hero-main"><div class="eyebrow">ONE WORKSPACE · 100+ TOOLS</div><h1>Fix, convert, compress & create.</h1><p class="lead">A mobile-first toolbox for PDF, images, documents, QR, text, developer utilities and smart file workflows.</p><form class="search" id="homeSearch"><input id="q" placeholder="Search a tool… e.g. PDF compressor, QR, JSON"><button class="btn">Find tool</button></form><div class="stats"><div class="card stat"><span class="muted">Tools</span><b>100+</b></div><div class="card stat"><span class="muted">Mobile</span><b>Ready</b></div><div class="card stat"><span class="muted">Workflow</span><b>Batch</b></div><div class="card stat"><span class="muted">Privacy</span><b>First</b></div></div></div><aside class="card hero-side"><div class="eyebrow">LIVE TOOL ORBIT</div><div class="tool-orbit"><div class="orbit-center">FF</div><div class="orb o1">PDF</div><div class="orb o2">IMG</div><div class="orb o3">QR</div><div class="orb o4">TXT</div></div><p class="muted">Many transformations can run locally in the browser.</p></aside></div>
+<section class="section"><div class="head"><div><div class="eyebrow">TOOLS</div><h2>Popular tools</h2></div><a class="ghost" href="#tools">View all →</a></div><div id="featured" class="grid"></div></section>
+<section class="section"><div class="ad card">ADVERTISEMENT · activates after AdSense setup</div></section>
+<section class="section"><div class="head"><div><div class="eyebrow">POWER FEATURES</div><h2>Built for real workflows</h2></div></div><div class="grid"><div class="card tool"><div class="icon">📦</div><h3>Batch processing</h3><p>Process multiple compatible files together.</p></div><div class="card tool"><div class="icon">📱</div><h3>Phone-first</h3><p>Camera, file picker and touch-friendly controls.</p></div><div class="card tool"><div class="icon">🛡️</div><h3>Privacy-first</h3><p>Prefer local processing and show uploads explicitly.</p></div><div class="card tool"><div class="icon">⚡</div><h3>Fast feedback</h3><p>Progress, previews, downloads and clear errors.</p></div></div></section>
 </div></section>
-<section class="section split" style="grid-template-columns:1fr 1fr"><div class="card panel"><div class="chip">TRUST MODEL</div><h2>One number is never enough.</h2><div class="micro" style="margin-top:12px;display:grid"><span>Published official reference</span><span>Verified community observations</span><span>Derived calculations</span><span>Unknown when evidence is missing</span></div></div><div class="card panel"><div class="chip">PRICE DNA</div><h2>Understand how prices behave.</h2><p class="muted">Track trend, spread, stability, seasonality and anomalies as history accumulates — without turning inference into “live truth”.</p><a class="btn" href="#methodology">Read methodology</a></div></section>
-</div></section>
-
-<section class="route" data-route="search"><div class="wrap"><div class="route-head"><div><div class="eyebrow">SEARCH</div><h1>Search the catalogue.</h1><p class="muted">Official reference products plus verified local observations when available.</p></div><div class="search" style="max-width:460px;width:100%"><input id="searchInput" placeholder="Product, category or Hindi name"><button class="btn" id="searchBtn">Search</button></div></div><div id="searchMeta" class="muted"></div><div id="results" class="results" style="margin-top:14px"></div></div></section>
-
-<section class="route" data-route="catalog"><div class="wrap"><div class="route-head"><div><div class="eyebrow">CATALOG</div><h1>Browse the product universe.</h1><p class="muted">1,000,000+ target product variants through normalized ingestion. Prices are shown only when evidence exists.</p></div></div><div class="card panel"><div class="search"><input id="catalogInput" placeholder="Search category or subcategory…"><button class="btn" id="catalogBtn">Explore</button></div><div id="catalogMeta" class="muted" style="margin-top:12px"></div><div id="catalogGrid" class="grid" style="margin-top:14px"></div></div></div></section>
-
-<section class="route" data-route="compare-hub"><div class="wrap"><div class="route-head"><div><div class="eyebrow">PRICE INTELLIGENCE</div><h1>One place for every buying decision.</h1><p class="muted">Find a product, inspect evidence, normalize the unit cost, compare channels and build a basket.</p></div></div><div class="panel-grid">
-<div class="card panel"><div class="chip">DISCOVER</div><h2>Search & Catalog</h2><p class="muted">Browse the sourced product universe and taxonomy.</p><a class="btn" href="#search">Search now</a></div>
-<div class="card panel"><div class="chip">VERIFY</div><h2>History & evidence</h2><p class="muted">See dates, sources, freshness and available observations.</p><a class="btn" href="#markets">Open evidence</a></div>
-<div class="card panel"><div class="chip">BUY</div><h2>Compare & Basket</h2><p class="muted">Normalize pack sizes and calculate a reference basket.</p><a class="btn" href="#compare">Compare</a></div>
-</div></div></section>
-
-<section class="route" data-route="about"><div class="wrap"><div class="route-head"><div><div class="eyebrow">ABOUT PRICEATLAS</div><h1>Price intelligence you can inspect.</h1><p class="muted">PriceAtlas separates source observations, calculations and missing evidence so users can understand what a number actually means.</p></div></div><div class="panel-grid"><div class="card panel"><div class="chip">EVIDENCE</div><h2>Source + time + context</h2><p class="muted">Every published price is tied to a source and observation date where available.</p></div><div class="card panel"><div class="chip">COMPARE</div><h2>Normalize before comparing</h2><p class="muted">Pack sizes and compatible units are normalized before unit-price comparisons.</p></div><div class="card panel"><div class="chip">MISSING DATA</div><h2>Unknown stays unknown</h2><p class="muted">PriceAtlas does not create local or online prices when it has no evidence for them.</p></div></div></div></section>
-
-<section class="route" data-route="privacy"><div class="wrap"><div class="route-head"><div><div class="eyebrow">PRIVACY</div><h1>Privacy and advertising.</h1><p class="muted">This page explains the data and advertising boundary for PriceAtlas.</p></div></div><div class="card panel"><h2>Affiliate disclosure</h2><p class="muted">Some merchant links may be affiliate links. A qualifying purchase may generate a commission for PriceAtlas at no additional cost to the shopper.</p><h2>Advertising</h2><p class="muted">Google AdSense may use cookies or similar technologies to serve and measure advertisements. Google requires publishers to disclose advertising cookies in their privacy policy and comply with applicable laws. citeturn159187search5turn159187search11</p><h2>Regional consent</h2><p class="muted">For traffic in the EEA, UK and Switzerland, Google requires an appropriate consent flow for personalized advertising. citeturn159187search6turn159187search7</p></div></div></section>
-
-<section class="route" data-route="contact"><div class="wrap"><div class="route-head"><div><div class="eyebrow">CONTACT</div><h1>Report a problem.</h1><p class="muted">Use GitHub Issues for price corrections, source problems and product-data issues.</p></div></div><div class="card panel"><a class="btn" target="_blank" rel="noreferrer" href="https://github.com/Shivamgarg581/priceatlas/issues/new">Open PriceAtlas issue</a></div></div></section>
-<section class="route" data-route="product"><div class="wrap"><div style="padding-top:30px"><a class="ghost" href="#search">← Back</a></div><div id="product"></div></div></section>
-
-<section class="route" data-route="markets"><div class="wrap"><div class="route-head"><div><div class="eyebrow">MARKETS + SOURCES</div><h1>Local evidence.</h1><p class="muted">Only verified local observations are shown as local prices.</p></div><a class="btn" href="#report">Report a price</a></div><div id="marketSummary"></div><section class="section card panel"><div class="chip">COVERAGE</div><h2>Where evidence exists</h2><div id="coverage" class="coverage"></div></section><section class="section card panel"><div class="chip">SOURCE NETWORK</div><h2>Connected price channels</h2><div id="sources" class="grid"></div></section></div></section>
-
-<section class="route" data-route="compare"><div class="wrap"><div class="route-head"><div><div class="eyebrow">TRUE UNIT PRICE</div><h1>Compare quantities correctly.</h1><p class="muted">Normalize compatible units before calling one option cheaper.</p></div></div><div class="compare"><div class="card panel"><div class="chip">OPTION A</div><div class="formgrid"><div class="field"><label>Name</label><input id="aName" placeholder="Product A"></div><div class="field"><label>Price ₹</label><input id="aPrice" type="number" step="0.01"></div><div class="field"><label>Quantity</label><input id="aQty" type="number" step="0.001"></div><div class="field"><label>Unit</label><select id="aUnit"><option>kg</option><option>g</option><option>litre</option><option>ml</option><option>piece</option></select></div></div><div id="aOut" class="calc">—</div></div><div class="card panel"><div class="chip">OPTION B</div><div class="formgrid"><div class="field"><label>Name</label><input id="bName" placeholder="Product B"></div><div class="field"><label>Price ₹</label><input id="bPrice" type="number" step="0.01"></div><div class="field"><label>Quantity</label><input id="bQty" type="number" step="0.001"></div><div class="field"><label>Unit</label><select id="bUnit"><option>kg</option><option>g</option><option>litre</option><option>ml</option><option>piece</option></select></div></div><div id="bOut" class="calc">—</div></div></div><div id="compareOut" class="section"></div></div></section>
-
-<section class="route" data-route="basket"><div class="wrap"><div class="route-head"><div><div class="eyebrow">BASKET</div><h1>Build a reference basket.</h1><p class="muted">Calculate from available official references only.</p></div><button class="btn" id="addItem">+ Add row</button></div><div class="card panel"><div id="basketRows"></div><div id="basketOut" class="section"></div></div></div></section>
-
-<section class="route" data-route="tools"><div class="wrap"><div class="route-head"><div><div class="eyebrow">TOOLS</div><h1>Useful buying math.</h1><p class="muted">Deterministic tools for common shopping calculations.</p></div></div><div class="tools">
-<div class="card panel"><div class="chip">MRP</div><h2>MRP checker</h2><div class="formgrid"><div class="field"><label>MRP ₹</label><input id="mrp"></div><div class="field"><label>Charged ₹</label><input id="charged"></div></div><button class="btn" style="margin-top:12px" id="mrpBtn">Check</button><div id="mrpOut" class="section"></div></div>
-<div class="card panel"><div class="chip">HIDDEN COST</div><h2>True total</h2><div class="formgrid"><div class="field"><label>Base ₹</label><input id="base"></div><div class="field"><label>Extra ₹</label><input id="extra"></div></div><button class="btn" style="margin-top:12px" id="costBtn">Calculate</button><div id="costOut" class="section"></div></div>
-<div class="card panel"><div class="chip">RECEIPT</div><h2>Receipt arithmetic</h2><p class="small muted">One line: name | qty | unit price</p><textarea id="receipt" rows="7">Sugar | 1 | 56.70
-Potato | 2 | 22.72
-Onion | 1 | 54.13</textarea><button class="btn" style="margin-top:12px" id="receiptBtn">Check total</button><div id="receiptOut" class="section"></div></div>
-<div class="card panel"><div class="chip">SHRINKFLATION</div><h2>Effective unit change</h2><div class="formgrid"><div class="field"><label>Old price</label><input id="op"></div><div class="field"><label>Old qty</label><input id="oq"></div><div class="field"><label>New price</label><input id="np"></div><div class="field"><label>New qty</label><input id="nq"></div></div><button class="btn" style="margin-top:12px" id="shrinkBtn">Analyze</button><div id="shrinkOut" class="section"></div></div>
-</div></div></section>
-
-<section class="route" data-route="report"><div class="wrap"><div class="route-head"><div><div class="eyebrow">COMMUNITY</div><h1>Report a local price.</h1><p class="muted">Reports are reviewed before they become public verified observations.</p></div></div><div class="card panel"><div class="notice"><b>Privacy:</b> never submit phone numbers, home addresses, payment information, passwords or IDs.</div><p>Use the structured GitHub form. A maintainer verifies the report and then publishes it into the public dataset.</p><a class="btn" id="reportLink" target="_blank" rel="noreferrer">Open price report ↗</a></div></div></section>
-
-<section class="route" data-route="methodology"><div class="wrap"><div class="route-head"><div><div class="eyebrow">METHODOLOGY</div><h1>How PriceAtlas knows.</h1></div></div><div class="grid" style="grid-template-columns:repeat(2,1fr)"><div class="card panel"><div class="chip">01 · SOURCE</div><h2>Official reference</h2><p class="muted">The current bundled official snapshot is a dated Department of Consumer Affairs Price Monitoring System observation. It is not a quote for every local shop.</p></div><div class="card panel"><div class="chip">02 · LOCAL</div><h2>Community evidence</h2><p class="muted">Local observations remain separate and are only surfaced after verification.</p></div><div class="card panel"><div class="chip">03 · MATH</div><h2>Deterministic analysis</h2><p class="muted">Normalization, basket totals, MRP checks and historical statistics are computed directly from structured data.</p></div><div class="card panel"><div class="chip">04 · UNKNOWN</div><h2>Uncertainty is visible</h2><p class="muted">Missing, stale or conflicting evidence is not turned into a fabricated live price.</p></div></div></div></section>
-
-<section class="route" data-route="security"><div class="wrap"><div class="route-head"><div><div class="eyebrow">SECURITY</div><h1>Defense in depth.</h1></div></div><div class="card panel"><div class="row"><span>Client</span><b>No private secrets in browser</b></div><div class="row"><span>Ingestion</span><b>Fail-closed parsing + provenance</b></div><div class="row"><span>Community</span><b>Quarantine until verification</b></div><div class="row"><span>Data</span><b>Versioned snapshots and explicit dates</b></div><div class="row"><span>Recovery</span><b>Git history + known-good datasets</b></div></div></div></section>
-
-<div class="wrap foot">PriceAtlas · Evidence-aware price intelligence · <a href="#methodology">Methodology</a> · <a href="#security">Security</a> · <a href="#report">Report a price</a></div>
+<section class="route" data-route="tools"><div class="wrap"><div class="route-head"><div class="eyebrow">TOOLBOX</div><h2>All tools</h2><p class="muted">100+ named tools; real browser tools work now, unsupported operations fail clearly.</p></div><div class="cat-tabs" id="cats"></div><div id="toolsGrid" class="grid" style="margin-top:14px"></div></div></section>
+<section class="route" data-route="tool"><div class="wrap"><div class="route-head"><a class="ghost" href="#tools">← All tools</a><div id="toolTitle"></div></div><div id="toolWork"></div></div></section>
+<section class="route" data-route="about"><div class="wrap"><div class="route-head"><div class="eyebrow">ABOUT</div><h2>A serious utility platform.</h2></div><div class="grid"><div class="card panel"><h3>Local first</h3><p class="muted">Use browser APIs where feasible.</p></div><div class="card panel"><h3>Clear boundaries</h3><p class="muted">Backend-only operations are explicit.</p></div><div class="card panel"><h3>No fake output</h3><p class="muted">A tool either works or reports what engine it needs.</p></div><div class="card panel"><h3>Accessible motion</h3><p class="muted">Reduced-motion preferences are respected.</p></div></div></div></section>
+<section class="route" data-route="privacy"><div class="wrap"><div class="route-head"><div class="eyebrow">PRIVACY</div><h2>Your files should be yours.</h2></div><div class="card panel"><p>FileForge AI is designed to process files locally where technically practical. Any future server processing should be clearly indicated before upload.</p></div></div></section>
 </main>
+<footer class="footer wrap">FileForge AI · PDF · Image · Text · QR · Developer tools · Built for mobile.</footer>
 <div class="toast" id="toast"></div>
-
 <script>
-const REPO="Shivamgarg581/priceatlas";
-const URLS={official:"./data/official-prices.json",community:"./data/community-prices.json",history:"./data/price-history.json",sources:"./data/source-registry.json",catalog:"./data/catalog-taxonomy.json"};
-const PRODUCT_META={
- rice:{name:"Rice",category:"Grocery",unit:"kg",aliases:["rice","chawal"]},
- wheat:{name:"Wheat",category:"Grocery",unit:"kg",aliases:["wheat","gehun","gehu"]},
- atta:{name:"Atta",category:"Grocery",unit:"kg",aliases:["atta","flour","aata"]},
- "gram-dal":{name:"Gram Dal",category:"Pulses",unit:"kg",aliases:["gram dal","chana dal"]},
- "tur-arhar-dal":{name:"Tur / Arhar Dal",category:"Pulses",unit:"kg",aliases:["tur","arhar","toor","tuvar dal"]},
- "urad-dal":{name:"Urad Dal",category:"Pulses",unit:"kg",aliases:["urad"]},
- "moong-dal":{name:"Moong Dal",category:"Pulses",unit:"kg",aliases:["moong"]},
- "masoor-dal":{name:"Masoor Dal",category:"Pulses",unit:"kg",aliases:["masoor"]},
- sugar:{name:"Sugar",category:"Grocery",unit:"kg",aliases:["sugar","cheeni","chini"]},
- gur:{name:"Gur",category:"Grocery",unit:"kg",aliases:["gur","jaggery"]},
- "groundnut-oil":{name:"Groundnut Oil",category:"Oil",unit:"litre",aliases:["groundnut oil","peanut oil"]},
- "mustard-oil":{name:"Mustard Oil",category:"Oil",unit:"litre",aliases:["mustard oil","sarson oil"]},
- vanaspati:{name:"Vanaspati",category:"Oil",unit:"kg",aliases:["vanaspati"]},
- "sunflower-oil":{name:"Sunflower Oil",category:"Oil",unit:"litre",aliases:["sunflower oil"]},
- "soya-oil":{name:"Soya Oil",category:"Oil",unit:"litre",aliases:["soya oil","soybean oil"]},
- "palm-oil":{name:"Palm Oil",category:"Oil",unit:"litre",aliases:["palm oil"]},
- "tea-loose":{name:"Tea (Loose)",category:"Beverage",unit:"kg",aliases:["tea","chai","chay"]},
- milk:{name:"Milk",category:"Dairy",unit:"litre",aliases:["milk","doodh"]},
- potato:{name:"Potato",category:"Vegetables",unit:"kg",aliases:["potato","aloo","alu","aalu"]},
- onion:{name:"Onion",category:"Vegetables",unit:"kg",aliases:["onion","pyaaz","pyaz","piaz"]},
- tomato:{name:"Tomato",category:"Vegetables",unit:"kg",aliases:["tomato","tamatar"]},
- salt:{name:"Salt",category:"Grocery",unit:"kg",aliases:["salt","namak"]}
-};
-let official=null, community={reports:[]}, historyData=[], sourceRegistry={sources:[]}, taxonomy=null;
-const $=id=>document.getElementById(id);
-const money=n=>Number.isFinite(Number(n))?"₹"+Number(n).toFixed(2):"—";
-function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
-function normalize(s){return String(s||"").toLowerCase().trim();}
-function allProducts(){return Object.entries(PRODUCT_META).map(([slug,v])=>({slug,...v,price:official?.retail?.[slug]})).filter(x=>x.price!=null);}
-function unitPrice(price,qty,unit){
- price=Number(price);qty=Number(qty); if(!(price>=0&&qty>0))return null;
- if(unit==="g") qty/=1000; if(unit==="ml") qty/=1000;
- return price/qty;
-}
-function statusFor(slug,price){
- const arr=historyData.map(d=>Number(d.retail?.[slug])).filter(Number.isFinite);
- if(!arr.length) return ["unknown","Not enough history"];
- const m=arr.reduce((a,b)=>a+b,0)/arr.length;
- const delta=(price-m)/m;
- return delta<=-.05?["good","Below available history average"]:delta>=.05?["high","Above available history average"]:["normal","Near available history average"];
-}
-function renderKpis(){
- const products=allProducts(), values=products.map(x=>x.price).filter(Number.isFinite);
- $("kpis").innerHTML=[
-  ["Official products",products.length],
-  ["Latest snapshot",official?.observedOn||"—"],
-  ["Local verified",community.reports?.length||0],
-  ["Source freshness","Dated"]
- ].map(x=>'<div class="card kpi"><span>'+escapeHtml(x[0])+'</span><strong>'+escapeHtml(x[1])+'</strong></div>').join("");
-}
-function renderFeatured(){
- const picks=["sugar","potato","onion","tomato","rice","wheat","milk","mustard-oil"].map(s=>allProducts().find(x=>x.slug===s)).filter(Boolean);
- $("featured").innerHTML=picks.map(p=>{
-  const [cls,label]=statusFor(p.slug,p.price);
-  return '<a class="tile" href="#product/'+encodeURIComponent(p.slug)+'"><div class="chip">'+escapeHtml(p.category)+'</div><h3>'+escapeHtml(p.name)+'</h3><div class="price">'+money(p.price)+'<span class="small muted"> / '+escapeHtml(p.unit)+'</span></div><span class="pill '+cls+'">'+escapeHtml(label)+'</span><div class="source-line">Official snapshot · '+escapeHtml(official.observedOn)+'</div></a>';
- }).join("");
-}
-function renderPulse(){
- const out=[];const h=historyData;
- if(h.length>=2){
-   const a=h[h.length-1].retail||{},b=h[h.length-2].retail||{};
-   Object.keys(a).forEach(slug=>{if(Number(a[slug])&&Number(b[slug]))out.push({slug,delta:(a[slug]-b[slug])/b[slug]})});
-   out.sort((x,y)=>Math.abs(y.delta)-Math.abs(x.delta));
- }
- $("pulse").innerHTML=out.slice(0,3).map(x=>{
-   const p=PRODUCT_META[x.slug]||{name:x.slug,unit:""};
-   return '<a class="tile" href="#product/'+encodeURIComponent(x.slug)+'"><div class="chip">RECENT CHANGE</div><h3>'+escapeHtml(p.name)+'</h3><div style="font-size:28px;font-weight:1000">'+(x.delta>=0?"+":"")+((x.delta)*100).toFixed(1)+'%</div><div class="muted">From one dated snapshot to the next</div></a>';
- }).join("")||'<div class="empty" style="grid-column:1/-1">Two dated observations are needed before a change can be calculated.</div>';
-}
-function search(q){
- q=normalize(q);let list=allProducts();
- if(q) list=list.filter(p=>[p.name,p.category,...p.aliases,p.slug].some(v=>normalize(v).includes(q)));
- $("searchMeta").textContent=q?list.length+" matching official reference products":"Showing official reference products";
- $("results").innerHTML=list.length?list.map(p=>{
-   const [cls,label]=statusFor(p.slug,p.price);
-   return '<a class="detail" href="#product/'+encodeURIComponent(p.slug)+'"><div class="chip">'+escapeHtml(p.category)+'</div><h2>'+escapeHtml(p.name)+'</h2><div class="metric">'+money(p.price)+'</div><div class="muted">/ '+escapeHtml(p.unit)+'</div><div style="margin-top:11px"><span class="pill '+cls+'">'+escapeHtml(label)+'</span></div><div class="source-line">'+escapeHtml(official.source)+' · '+escapeHtml(official.observedOn)+'</div></a>'
- }).join(""):'<div class="empty" style="grid-column:1/-1">No official product matched. We do not fabricate a price. Try another name or submit a real local observation.</div>';
-}
-function productPage(slug){
- const p=PRODUCT_META[slug]; const price=official?.retail?.[slug];
- if(!p||price==null){$("product").innerHTML='<div class="empty" style="margin-top:20px">No verified reference for this product yet.</div>';return;}
- const hist=historyData.map(d=>({date:d.date,price:Number(d.retail?.[slug])})).filter(x=>Number.isFinite(x.price)).slice(-14);
- const [cls,label]=statusFor(slug,price);
- const max=Math.max(...hist.map(x=>x.price),price,1);
- const bars=hist.length?hist.map((x,i)=>'<div class="bar" style="height:'+Math.max(8,(x.price/max)*145)+'px;animation-delay:'+i*35+'ms"><span>'+escapeHtml(x.date.slice(5))+'</span></div>').join(""):'<div class="empty" style="width:100%">No dated history yet.</div>';
- $("product").innerHTML='<div class="detail card" style="margin-top:18px"><div class="chip">'+escapeHtml(p.category)+'</div><h1 style="font-size:46px">'+escapeHtml(p.name)+'</h1><div class="metric">'+money(price)+' <span class="muted" style="font-size:16px;font-weight:600">/ '+escapeHtml(p.unit)+'</span></div><span class="pill '+cls+'">'+escapeHtml(label)+'</span><div class="source-line">'+escapeHtml(official.source)+' · observed '+escapeHtml(official.observedOn)+'</div><div class="detail-grid section">'+
- '<div class="tile"><div class="small muted">Official retail</div><b>'+money(price)+'</b><div class="small muted">National reference</div></div>'+
- '<div class="tile"><div class="small muted">Official wholesale</div><b>'+money(official.wholesalePerQuintal?.[slug])+'</b><div class="small muted">Per quintal where published</div></div>'+
- '<div class="tile"><div class="small muted">Local shop</div><b>Unknown</b><div class="small muted">No verified local observation</div></div>'+
- '<div class="tile"><div class="small muted">Online</div><b>Awaiting source</b><div class="small muted">No licensed merchant observation</div></div>'+
- '</div><div class="section"><div class="chip">HISTORY</div><h2>Dated movement</h2><div class="bars">'+bars+'</div></div>'+
- '<div class="section notice"><b>Price truth:</b> this number is an official national reference for '+escapeHtml(official.observedOn)+'. It is not a quote for a specific shop.</div></div>';
-}
-function renderCatalog(){
- const q=normalize($("catalogInput")?.value||"");
- const cats=taxonomy?.categories||[];
- const list=q?cats.filter(c=>[c.name,c.slug,...(c.subcategories||[])].some(x=>normalize(x).includes(q))):cats;
- const target=Number(taxonomy?.catalog_growth?.target_records||0);
- $("catalogMeta").textContent=target.toLocaleString()+"+ target variants · "+list.length+" categories";
- $("catalogGrid").innerHTML=list.map(c=>{
-   const key=c.slug.replaceAll("-","_");
-   const count=Number(taxonomy?.catalog_growth?.category_targets?.[key]||0);
-   return '<div class="tile"><div class="chip">CATEGORY</div><h3>'+escapeHtml(c.name)+'</h3><p class="small muted">'+(c.subcategories||[]).slice(0,8).map(escapeHtml).join(" · ")+'</p><div class="price" style="font-size:24px">'+count.toLocaleString()+'</div><div class="small muted">target variants</div></div>';
- }).join("")||'<div class="empty" style="grid-column:1/-1">No category matched.</div>';
-}
-function renderSources(){
- const el=$("sources"); if(!el||!sourceRegistry.sources) return;
- el.innerHTML=sourceRegistry.sources.map(src=>{
-   const cls=src.status==="connected-snapshot"?"good":src.status==="community"?"normal":"unknown";
-   const label=src.status==="connected-snapshot"?"Connected":src.status==="community"?"Community":"Connector ready / authorization required";
-   return '<div class="tile"><div class="chip">'+escapeHtml(src.channel||"source")+'</div><h3>'+escapeHtml(src.name)+'</h3><div><span class="pill '+cls+'">'+escapeHtml(label)+'</span></div><p class="small muted">'+escapeHtml(src.coverage||"")+'</p></div>';
- }).join("");
-}
-function markets(){
- const reports=Array.isArray(community.reports)?community.reports:[];
- const by={};reports.forEach(r=>{(by[r.market] ||= []).push(r)});
- $("marketSummary").innerHTML='<div class="kpis"><div class="card kpi"><span>Verified observations</span><strong>'+reports.length+'</strong></div><div class="card kpi"><span>Markets / shops</span><strong>'+Object.keys(by).length+'</strong></div><div class="card kpi"><span>Products with local data</span><strong>'+new Set(reports.map(r=>r.product_slug)).size+'</strong></div><div class="card kpi"><span>Local layer</span><strong>'+escapeHtml(reports.length?"Active":"Empty")+'</strong></div></div>';
- $("coverage").innerHTML=Object.keys(by).length?Object.keys(by).map(k=>'<div class="tile"><div class="small muted">Market / shop</div><strong>'+escapeHtml(k)+'</strong><div class="small muted">'+by[k].length+' verified observations</div></div>').join(""):'<div class="empty" style="grid-column:1/-1">No verified local observations yet. Submit the first real observation.</div>';
-}
-function compareCalc(){
- const a=unitPrice($("aPrice").value,$("aQty").value,$("aUnit").value),b=unitPrice($("bPrice").value,$("bQty").value,$("bUnit").value);
- $("aOut").textContent=a==null?"—":money(a)+" / kg·L-equivalent";$("bOut").textContent=b==null?"—":money(b)+" / kg·L-equivalent";
- $("compareOut").innerHTML=a!=null&&b!=null?'<div class="card panel"><h2>Normalized result</h2><p class="muted">'+(a<b?"Option A has the lower normalized unit price.":a>b?"Option B has the lower normalized unit price.":"They are equal after normalization.")+'</p></div>':"";
-}
-let basketItems=[["Sugar",1,"kg","sugar"],["Rice",5,"kg","rice"],["Onion",2,"kg","onion"],["Potato",2,"kg","potato"]];
-function basket(){
- $("basketRows").innerHTML=basketItems.map((x,i)=>'<div class="row"><span><b>'+escapeHtml(x[0])+'</b><br><span class="small muted">'+money(official?.retail?.[x[3]])+'/'+escapeHtml(x[2])+'</span></span><span><input data-bi="'+i+'" type="number" min="0" step="0.1" value="'+x[1]+'" style="width:105px;background:#07140f;color:#fff;border:1px solid var(--line);border-radius:10px;padding:9px"></span></div>').join("");
- let total=0; basketItems.forEach((x,i)=>{const q=Number(document.querySelector('[data-bi="'+i+'"]').value)||0; total+=(Number(official?.retail?.[x[3]])||0)*q});
- $("basketOut").innerHTML='<div class="card panel"><div class="small muted">Official-reference basket total</div><div class="calc">'+money(total)+'</div><div class="small muted">Not a quote for a particular shop.</div></div>';
- document.querySelectorAll("[data-bi]").forEach(e=>e.addEventListener("input",basket));
-}
-function tools(){
- $("mrpBtn").onclick=()=>{const a=Number($("mrp").value),b=Number($("charged").value);$("mrpOut").innerHTML=Number.isFinite(a)&&Number.isFinite(b)?'<div class="notice">'+(b<=a?"Entered charge is at or below the entered MRP.":"Entered charge is above the entered MRP — verify the product, bill and applicable rules.")+'</div>':""};
- $("costBtn").onclick=()=>{const a=Number($("base").value),b=Number($("extra").value)||0;$("costOut").innerHTML=Number.isFinite(a)?'<div class="calc">'+money(a+b)+'</div><div class="small muted">Base + entered extras</div>':""};
- $("receiptBtn").onclick=()=>{let sum=0,bad=[];$("receipt").value.split("\n").forEach((line,i)=>{if(!line.trim())return;const p=line.split("|").map(s=>s.trim()),q=Number(p[1]),u=Number(p[2]);if(Number.isFinite(q)&&Number.isFinite(u))sum+=q*u;else bad.push(i+1)});$("receiptOut").innerHTML='<div class="calc">'+money(sum)+'</div>'+(bad.length?'<div class="notice">Could not parse line(s): '+bad.join(", ")+'.</div>':"")};
- $("shrinkBtn").onclick=()=>{const a=Number($("op").value),b=Number($("oq").value),c=Number($("np").value),d=Number($("nq").value);if([a,b,c,d].every(Number.isFinite)&&b>0&&d>0){const old=a/b,now=c/d,change=(now/old-1)*100;$("shrinkOut").innerHTML='<div class="calc">'+money(now)+'</div><div class="notice">Effective unit price '+(change>=0?"increased ":"decreased ")+Math.abs(change).toFixed(1)+'%.</div>'}else $("shrinkOut").innerHTML=""};
-}
-function show(route){document.querySelectorAll(".route").forEach(s=>s.classList.toggle("active",s.dataset.route===route));document.querySelectorAll(".navlinks a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+route));window.scrollTo({top:0,behavior:"smooth"});}
-function route(){
- const raw=location.hash.replace(/^#/,"")||"home",parts=raw.split("/"),name=parts[0],param=parts.slice(1).join("/");
- show(name);
- if(name==="home"){}
- if(name==="search"){$("searchInput").value=param?decodeURIComponent(param):"";search($("searchInput").value)}
- if(name==="product")productPage(decodeURIComponent(param||""));
- if(name==="markets")markets();
- if(name==="catalog")renderCatalog();
- if(name==="compare")compareCalc();
- if(name==="basket")basket();
- if(name==="tools")tools();
- if(name==="report")$("reportLink").href="https://github.com/"+REPO+"/issues/new?template=price-report.yml";
-}
-$("navlinks").innerHTML=["home","search","catalog","markets","compare","compare-hub","basket","tools","report","about"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>';
-function setupAdvanced(){
- const input=$("heroInput"), box=$("heroSuggestions");
- const suggestions=["sugar","rice","wheat","atta","gram dal","tur arhar dal","urad dal","moong dal","masoor dal","groundnut oil","mustard oil","sunflower oil","milk","potato","onion","tomato","salt","grocery","vegetables","electronics","clothing"];
- const draw=(q)=>{const v=q.trim().toLowerCase();const m=suggestions.filter(x=>!v||x.includes(v)).slice(0,6);box.innerHTML=m.map(x=>'<div class="suggestion">'+escapeHtml(x)+'</div>').join("");box.classList.toggle("show",m.length>0)};
- input.addEventListener("input",()=>draw(input.value));
- box.addEventListener("click",e=>{const t=e.target.closest(".suggestion");if(!t)return;input.value=t.textContent;box.classList.remove("show");location.hash="search/"+encodeURIComponent(input.value)});
- document.addEventListener("click",e=>{if(!e.target.closest(".search-suggest"))box.classList.remove("show")});
- $("quickAction").onclick=()=>{const actions=["#search","#compare","#basket","#tools","#markets","#report"];location.hash=actions[Math.floor(Math.random()*actions.length)]};
-}
-setupAdvanced();
-
-$("menu").onclick=()=>$("nav").classList.toggle("open");
-$("heroForm").onsubmit=e=>{e.preventDefault();const q=$("heroInput").value.trim();location.hash=q?"search/"+encodeURIComponent(q):"search"};
-$("searchBtn").onclick=()=>search($("searchInput").value);$("searchInput").onkeydown=e=>{if(e.key==="Enter")search($("searchInput").value)};
-["aPrice","aQty","aUnit","bPrice","bQty","bUnit"].forEach(id=>$(id).addEventListener("input",compareCalc));
-$("addItem").onclick=()=>{basketItems.push(["New item",1,"kg","sugar"]);basket();toast("Added a row. Choose your product when customizing the basket.");};
-$("surprise").onclick=()=>{if(historyData.length>=2){const a=historyData.at(-1).retail||{},b=historyData.at(-2).retail||{};const x=Object.keys(a).map(slug=>({slug,d:Number(b[slug])?(Number(a[slug])/Number(b[slug])-1):0})).filter(x=>Number.isFinite(x.d)).sort((m,n)=>Math.abs(n.d)-Math.abs(m.d))[0];if(x)location.hash="product/"+x.slug}else toast("The surprise engine needs at least two dated official snapshots.");};
-function toast(t){$("toast").textContent=t;$("toast").classList.add("show");clearTimeout(window.__toast);window.__toast=setTimeout(()=>$("toast").classList.remove("show"),3200)}
-Promise.all([
- fetch(URLS.official,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("official");return r.json()}),
- fetch(URLS.community,{cache:"no-store"}).then(r=>r.ok?r.json():{reports:[]}),
- fetch(URLS.history,{cache:"no-store"}).then(r=>r.ok?r.json():[]),
- fetch(URLS.sources,{cache:"no-store"}).then(r=>r.ok?r.json():{sources:[]}),
- fetch(URLS.catalog,{cache:"no-store"}).then(r=>r.ok?r.json():{categories:[]})
-]).then(x=>{official=x[0];community=x[1]||{reports:[]};historyData=Array.isArray(x[2])?x[2]:[];sourceRegistry=x[3]||{sources:[]};taxonomy=x[4]||{categories:[]};$("sugar").textContent=money(official.retail.sugar);$("onion").textContent=money(official.retail.onion);$("tomato").textContent=money(official.retail.tomato);$("officialDate").textContent="Observed "+official.observedOn;$("sourceLink").href=official.sourceUrl;renderKpis();renderFeatured();renderPulse();renderSources();route()}).catch(()=>{$("app").innerHTML='<div class="wrap" style="padding:80px 0"><div class="card panel"><h1>PriceAtlas could not load its verified dataset.</h1><p class="muted">The site failed closed rather than inventing prices. Check the versioned data files and retry.</p></div></div>'});
-setTimeout(()=>{$("splash").classList.add("hide")},1400);
-window.addEventListener("hashchange",route);
-if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
-</script>
-
-<div class="modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><div class="modal-card"><div style="display:flex;justify-content:space-between;gap:12px"><div><div class="eyebrow">ACCOUNT</div><h2 id="accountTitle">PriceAtlas account</h2></div><button class="ghost" id="closeAccount">Close</button></div><p class="muted">Save favorites, shopping lists and price alerts here when the Supabase Auth backend is configured. Until then, this panel stays local and does not pretend to be a real account.</p><div class="notice"><b>Backend status:</b> frontend-safe mode. No private credentials are stored in browser code.</div></div></div>
-<script>
-(function advancedEnhancements(){
- const nav=document.getElementById("navlinks"), slot=document.getElementById("authSlot");
- if(nav && !document.querySelector('a[href="#catalog"]')) nav.insertAdjacentHTML("afterbegin",'<a href="#catalog">Catalog</a>');
- if(slot) slot.innerHTML='<button class="account-pill" id="accountBtn">Account</button>';
- const modal=document.getElementById("accountModal");
- document.getElementById("accountBtn")?.addEventListener("click",()=>modal.classList.add("show"));
- document.getElementById("closeAccount")?.addEventListener("click",()=>modal.classList.remove("show"));
- modal?.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
- document.addEventListener("keydown",e=>{if(e.key==="Escape")modal?.classList.remove("show")});
- const routes=document.querySelector('main#app');
- if(routes){
-   document.querySelectorAll('.route[data-route="home"] .section').forEach((el,i)=>{
-     if(i===2 && !el.nextElementSibling?.classList.contains("advanced-shell")){
-       const box=document.createElement("section");box.className="advanced-shell";
-       box.innerHTML='<div class="section-head"><div><div class="eyebrow">EVERYTHING IN ONE PLACE</div><h2>PriceAtlas toolkit</h2><div class="muted">Move from discovery to comparison, local evidence, shopping math and monitoring.</div></div></div><div class="feature-strip">'+
-       [["Search","Find products quickly","#search"],["Catalog","Browse categories","#catalog"],["Compare","Normalize unit prices","#compare"],["Basket","Build your list","#basket"],["Markets","Inspect local evidence","#markets"],["Tools","Run buying checks","#tools"]].map(x=>'<a class="feature-chip" href="'+x[2]+'"><b>'+x[0]+'</b><span>'+x[1]+'</span></a>').join("")+'</div>';
-       el.insertAdjacentElement("afterend",box);
-     }
-   });
- }
-})();
+const TOOL_DEFS=[["PDF Compressor","pdf","🗜️","Reduce PDF size when a PDF engine is configured."],["PDF Merger","pdf","📚","Combine PDF files."],["PDF Splitter","pdf","✂️","Extract PDF pages."],["PDF to JPG","pdf","🖼️","Render PDF pages to images."],["JPG to PDF","image","🧾","Create a PDF from images."],["Image Compressor","image","🗜️","Compress JPG/PNG/WebP images."],["Image Resizer","image","📐","Resize images."],["Image Cropper","image","✂️","Crop images."],["Image Format Converter","image","🔄","Convert browser-supported formats."],["Image to Text OCR","image","🔎","Extract text when OCR is connected."],["Background Remover","image","✨","Remove background when an engine is connected."],["QR Generator","qr","▣","Create QR payloads."],["QR Scanner","qr","📷","Scan a QR image when a decoder is connected."],["Wi-Fi QR","qr","📡","Build a Wi-Fi QR payload."],["Word Counter","text","🔢","Count words, characters and lines."],["Case Converter","text","Aa","Convert case."],["Text Cleaner","text","🧹","Normalize text."],["Duplicate Line Remover","text","≡","Remove duplicate lines."],["Slug Generator","text","🔗","Create URL slugs."],["JSON Formatter","dev","{}","Format and validate JSON."],["JSON Minifier","dev","{}","Minify JSON."],["JSON to CSV","dev","↔","Convert JSON arrays to CSV."],["CSV to JSON","dev","↔","Convert CSV to JSON."],["Base64 Encoder","dev","64","Encode text."],["Base64 Decoder","dev","↩","Decode Base64."],["URL Encoder","dev","%","Encode URL text."],["URL Decoder","dev","%","Decode URL text."],["Regex Tester","dev",".*","Test regular expressions."],["Percentage Calculator","calc","%","Calculate percentages."],["GST Calculator","calc","₹","Calculate GST."],["Discount Calculator","calc","−","Calculate discounts."],["EMI Calculator","calc","₹","Calculate loan EMI."],["Age Calculator","calc","🎂","Calculate age."],["BMI Calculator","calc","⚖️","Calculate BMI."],["Unit Converter","calc","↔","Convert common units."],["Password Generator","security","🔐","Generate random passwords."],["Hash Generator","security","#","Hash text."],["UUID Generator","dev","🆔","Generate UUIDs."],["Timestamp Converter","dev","⏱️","Convert Unix timestamps."],["Markdown Preview","dev","MD","Preview basic Markdown."],["CSV Viewer","dev","📊","Inspect CSV."],["HTML Escape","dev","< >","Escape HTML."],["HTML Unescape","dev","↔","Decode HTML."],["Color Converter","design","🎨","Convert colors."],["Aspect Ratio Calculator","design","▦","Calculate ratios."],["PX to REM","design","px","Convert px/rem."],["Shadow Generator","design","◒","Generate box-shadow CSS."],["Gradient Generator","design","🌈","Generate CSS gradients."],["Email QR","qr","✉","Build mailto payload."],["Phone QR","qr","☎","Build tel payload."],["File Name Cleaner","file","📝","Clean file names."],["Extension Finder","file","📁","Inspect extensions."],["MIME Type Lookup","file","🔍","Find common MIME types."],["Data URI Generator","dev","data","Create data URIs."],["Number Base Converter","dev","101","Convert bases."],["ASCII Converter","dev","A","Text and ASCII codes."],["JSON Escape","dev","\\\\","Escape JSON."],["Random Number Generator","calc","🎲","Generate random integers."],["Dice Roller","calc","🎲","Roll dice."],["Stopwatch","productivity","⏱️","Measure elapsed time."],["Timer","productivity","⏲️","Countdown timer."],["Pomodoro","productivity","🍅","Focus timer."],["List Sorter","text","↕","Sort lines."],["List Shuffler","text","🔀","Shuffle lines."],["Line Numberer","text","#","Number lines."],["Whitespace Remover","text","·","Normalize whitespace."],["URL Parser","dev","🔗","Inspect URL components."],["Query Builder","dev","?","Build query strings."],["JWT Decoder","security","JWT","Decode JWT locally."],["SHA-256 Generator","security","SHA","Generate SHA-256."],["Image Metadata Viewer","image","ℹ️","Inspect browser-readable image metadata."],["Pixel Inspector","image","🔬","Inspect pixels."],["Data Size Converter","calc","💾","Convert data sizes."],["Tip Calculator","calc","₹","Calculate tips."],["Currency Math","calc","💱","Calculate with entered FX rate."],["Age & Date Difference","calc","📅","Calculate date difference."],["Date Add/Subtract","calc","➕","Add or subtract days."],["Leap Year Checker","calc","📅","Check leap years."],["Working Days Calculator","calc","💼","Calculate weekdays."],["Invoice Total","business","🧾","Calculate invoice totals."],["Loan Calculator","calc","₹","Estimate loans."],["Profit Margin","business","📈","Calculate margins."],["Break-even Calculator","business","⚖️","Calculate break-even."],["Text Diff","text","⇄","Compare text blocks."],["Character Frequency","text","Σ","Count characters."],["Word Frequency","text","Σ","Count words."],["Secure Token Generator","security","◈","Generate secure tokens."],["EAN-13 Check","productivity","▦","Validate EAN-13."],["HTML Formatter","dev","<>","Format basic HTML."],["CSS Minifier","dev","#","Minify CSS whitespace."],["JavaScript Minifier","dev","JS","Minify JS whitespace."],["SQL Formatter","dev","SQL","Format simple SQL."],["Favicon Generator","image","⭐","Create favicon from an image."],["YouTube Thumbnail Size","design","▶️","Prepare thumbnail dimensions."],["Social Image Size Helper","design","📱","Common social dimensions."],["Text Encryptor","security","🔒","Encrypt text with Web Crypto."],["Text Decryptor","security","🔓","Decrypt FileForge text."],["File Checksum","security","#","Hash selected files."],["UTM Builder","marketing","🔗","Build campaign URLs."],["Meta Tag Generator","marketing","<meta>","Generate basic SEO tags."],["Robots.txt Generator","marketing","🤖","Generate robots.txt."],["Sitemap URL List","marketing","🗺️","Build sitemap URLs."],["Favicon Data URI","dev","data","Build favicon data URI."],["Hex Inspector","dev","HEX","Inspect hexadecimal bytes."],["Binary Viewer","dev","101","View binary text."],["Text Reverser","text","↶","Reverse text."],["Morse Code","text","·−","Encode/decode Morse."],["Palindrome Checker","text","↔","Check palindromes."],["Character Map","text","Ω","Inspect Unicode characters."],["Prime Checker","calc","∎","Check if a number is prime."],["GCD/LCM Calculator","calc","∴","Calculate GCD and LCM."],["Scientific Calculator","calc","√","Basic scientific functions."],["Random UUID Batch","dev","🆔","Generate multiple UUIDs."],["Cron Helper","dev","⏲️","Explain common cron fields."],["Color Contrast Checker","design","◐","Check contrast ratio."],["CSS Clamp Generator","design","↕","Generate clamp CSS."],["Border Radius Generator","design","◒","Generate border-radius CSS."],["Device Pixel Ratio","productivity","📱","Show browser DPR."],["Viewport Inspector","productivity","▣","Show viewport dimensions."]];
+const CAT_NAMES={all:"All",pdf:"PDF",image:"Image",qr:"QR",text:"Text",dev:"Developer",calc:"Calculators",security:"Security",design:"Design",file:"Files",productivity:"Productivity",business:"Business",marketing:"Marketing"};
+const $=id=>document.getElementById(id);const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));const toast=t=>{const e=$("toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)};
+function nav(){$("navlinks").innerHTML=["home","tools","about","privacy"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")}
+function toolCards(filter="all",query=""){const a=TOOL_DEFS.filter(t=>(filter==="all"||t[1]===filter)&&(!query||t[0].toLowerCase().includes(query.toLowerCase())||t[3].toLowerCase().includes(query.toLowerCase())));$("toolsGrid").innerHTML=a.map(t=>'<a class="card tool" href="#tool/'+encodeURIComponent(t[0])+'"><span class="badge">'+esc(CAT_NAMES[t[1]]||t[1])+'</span><div class="icon">'+t[2]+'</div><h3>'+esc(t[0])+'</h3><p>'+esc(t[3])+'</p></a>').join("")||'<div class="card panel">No tool matched.</div>'}
+function renderCats(){$("cats").innerHTML=Object.entries(CAT_NAMES).map(([k,v])=>'<button class="'+(k==="all"?"btn":"ghost")+'" data-cat="'+k+'">'+v+'</button>').join("");document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-cat]").forEach(x=>x.className="ghost");b.className="btn";toolCards(b.dataset.cat,$("q").value)})}
+function show(r){document.querySelectorAll(".route").forEach(x=>x.classList.toggle("active",x.dataset.route===r));document.querySelectorAll(".navlinks a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+r));scrollTo(0,0)}
+function fileInput(){return '<input id="toolFiles" type="file" multiple accept="*/*" hidden><div class="dropzone" id="drop"><div style="font-size:38px">📤</div><h3>Drop files here</h3><p class="muted">or choose from your phone</p><button class="btn" id="choose">Choose files</button><div id="files" class="file-list"></div></div>'}
+function setupFiles(){const fi=$("toolFiles"),d=$("drop");$("choose").onclick=()=>fi.click();d.ondragover=e=>{e.preventDefault();d.classList.add("drag")};d.ondragleave=()=>d.classList.remove("drag");d.ondrop=e=>{e.preventDefault();d.classList.remove("drag");fi.files=e.dataTransfer.files;fi.dispatchEvent(new Event("change"))};fi.onchange=()=>{$("files").innerHTML=[...fi.files].map(f=>'<div class="file-row"><span>'+esc(f.name)+'</span><small class="muted">'+(f.size/1024).toFixed(1)+' KB</small></div>').join("")}}
+function renderTool(name){const t=TOOL_DEFS.find(x=>x[0]===name);if(!t)return;$("toolTitle").innerHTML='<div class="eyebrow">'+esc(CAT_NAMES[t[1]]||t[1])+'</div><h2>'+esc(t[0])+'</h2><p class="muted">'+esc(t[3])+'</p>';let h='<div class="card panel"><div class="field"><label>Input</label><textarea id="inp" rows="12" placeholder="Paste or enter data…"></textarea></div><div class="field"><label>Option / Number</label><input id="opt"></div><div class="actions"><button class="btn" id="run">Run tool</button><button class="ghost" id="copy">Copy result</button></div><div class="output" id="out" style="margin-top:14px">Result will appear here.</div></div>';if(["Image Compressor","Image Resizer","Image Cropper"].includes(t[0]))h='<div class="toolpage"><div class="card panel">'+fileInput()+'<div class="formgrid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div class="field"><label>Width</label><input id="w" type="number"></div><div class="field"><label>Height</label><input id="h" type="number"></div></div><div class="actions"><button class="btn" id="run">Process</button><button class="ghost" id="download" disabled>Download</button></div></div><div class="card panel"><div class="output" id="out">Preview</div></div></div>';if(["PDF Compressor","PDF Merger","PDF Splitter","PDF to JPG","JPG to PDF"].includes(t[0]))h='<div class="card panel">'+fileInput()+'<div class="notice" style="margin-top:12px;padding:14px;border-radius:14px;background:#fff8e7">This PDF operation needs a dedicated PDF engine. The interface will not fake the result.</div></div>';if(t[1]==="calc")h='<div class="card panel"><div class="formgrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px"><div class="field"><label>A</label><input id="a" type="number"></div><div class="field"><label>B</label><input id="b" type="number"></div><div class="field"><label>C</label><input id="c" type="number"></div><div class="field"><label>D</label><input id="d" type="number"></div></div><button class="btn" id="run" style="margin-top:12px">Calculate</button><div class="output" id="out" style="margin-top:14px">Result will appear here.</div></div>';$("toolWork").innerHTML=h;if($("drop"))setupFiles();bindTool(t)}
+function bindTool(t){$("run")?.addEventListener("click",async()=>{const n=t[0],o=$("out");o.textContent="Working…";try{if(n==="Word Counter"){const v=$("inp").value;o.textContent=JSON.stringify({words:(v.trim().match(/\S+/g)||[]).length,characters:v.length,lines:v? v.split(/\n/).length:0},null,2)}else if(n==="Case Converter"){o.textContent=$("inp").value.toUpperCase()}else if(n==="Text Cleaner"||n==="Whitespace Remover"){o.textContent=$("inp").value.replace(/\s+/g," ").trim()}else if(n==="Duplicate Line Remover"){o.textContent=[...new Set($("inp").value.split(/\n/))].join("\n")}else if(n==="List Sorter"){o.textContent=$("inp").value.split(/\n/).filter(Boolean).sort().join("\n")}else if(n==="List Shuffler"){let a=$("inp").value.split(/\n/).filter(Boolean);for(let i=a.length-1;i>0;i--){const j=crypto.getRandomValues(new Uint32Array(1))[0]%(i+1);[a[i],a[j]]=[a[j],a[i]]}o.textContent=a.join("\n")}else if(n==="Line Numberer"){o.textContent=$("inp").value.split(/\n/).map((x,i)=>i+1+". "+x).join("\n")}else if(n==="Slug Generator"){o.textContent=$("inp").value.toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}else if(n==="JSON Formatter"){o.textContent=JSON.stringify(JSON.parse($("inp").value),null,2)}else if(n==="JSON Minifier"){o.textContent=JSON.stringify(JSON.parse($("inp").value))}else if(n==="CSV to JSON"){const rows=$("inp").value.trim().split(/\n/).map(r=>r.split(","));const h=rows.shift();o.textContent=JSON.stringify(rows.map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??""]))),null,2)}else if(n==="JSON to CSV"){const a=JSON.parse($("inp").value),h=Object.keys(a[0]||{});o.textContent=[h.join(","),...a.map(r=>h.map(k=>String(r[k]??"").replaceAll(","," ")).join(","))].join("\n")}else if(n==="Base64 Encoder"){o.textContent=btoa(unescape(encodeURIComponent($("inp").value)))}else if(n==="Base64 Decoder"){o.textContent=decodeURIComponent(escape(atob($("inp").value)))}else if(n==="URL Encoder"){o.textContent=encodeURIComponent($("inp").value)}else if(n==="URL Decoder"){o.textContent=decodeURIComponent($("inp").value)}else if(n==="HTML Escape"){o.textContent=esc($("inp").value)}else if(n==="HTML Unescape"){const d=document.createElement("textarea");d.innerHTML=$("inp").value;o.textContent=d.value}else if(n==="UUID Generator"){o.textContent=crypto.randomUUID()}else if(n==="Password Generator"||n==="Secure Token Generator"){const len=Math.min(128,Math.max(8,Number($("opt").value)||24)),b=crypto.getRandomValues(new Uint8Array(len));o.textContent=[...b].map(x=>x.toString(16).padStart(2,"0")).join("").slice(0,len)}else if(n==="SHA-256 Generator"||n==="Hash Generator"){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode($("inp").value));o.textContent=[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}else if(n==="Timestamp Converter"){o.textContent=new Date((Number($("inp").value)||0)*1000).toISOString()}else if(n==="URL Parser"){const u=new URL($("inp").value);o.textContent=JSON.stringify({protocol:u.protocol,host:u.host,path:u.pathname,query:u.search,hash:u.hash},null,2)}else if(n==="Percentage Calculator"){o.textContent=(Number($("a").value)*Number($("b").value)/100).toFixed(2)}else if(n==="GST Calculator"){const a=Number($("a").value),b=Number($("b").value);o.textContent=JSON.stringify({gst:a*b/100,total:a+a*b/100},null,2)}else if(n==="Discount Calculator"){const a=Number($("a").value),b=Number($("b").value);o.textContent=JSON.stringify({discount:a*b/100,final:a-a*b/100},null,2)}else if(n==="EMI Calculator"||n==="Loan Calculator"){const p=Number($("a").value),annual=Number($("b").value),years=Number($("c").value),r=annual/1200,m=years*12,emi=r?p*r*Math.pow(1+r,m)/(Math.pow(1+r,m)-1):p/m;o.textContent=JSON.stringify({emi:+emi.toFixed(2),total:+(emi*m).toFixed(2),interest:+(emi*m-p).toFixed(2)},null,2)}else if(n==="BMI Calculator"){const kg=Number($("a").value),cm=Number($("b").value);o.textContent=(kg/Math.pow(cm/100,2)).toFixed(2)}else if(n==="Data Size Converter"){const x=Number($("a").value);o.textContent=JSON.stringify({bytes:x,KB:x/1024,MB:x/1048576,GB:x/1073741824},null,2)}else if(n==="Tip Calculator"){const bill=Number($("a").value),tip=Number($("b").value),people=Number($("c").value)||1;const total=bill+bill*tip/100;o.textContent=JSON.stringify({tip:bill*tip/100,total,perPerson:total/people},null,2)}else if(n==="Random Number Generator"){let a=Number($("a").value)||1,b=Number($("b").value)||100;o.textContent=String(a+Math.floor(Math.random()*(b-a+1)))}else if(n==="Dice Roller"){const s=Number($("a").value)||6;o.textContent=String(1+Math.floor(Math.random()*s))}else if(n==="Age Calculator"){const d=new Date($("inp").value),now=new Date();let age=now.getFullYear()-d.getFullYear();if(now<new Date(now.getFullYear(),d.getMonth(),d.getDate()))age--;o.textContent=age+" years"}else if(n==="Aspect Ratio Calculator"){const w=Number($("a").value),h=Number($("b").value),nw=Number($("c").value);o.textContent=(nw*h/w).toFixed(2)}else{o.textContent="This named tool needs its dedicated processor/engine. FileForge AI will not fake a result.";}}catch(e){o.textContent="Error: "+e.message}});$("copy")?.addEventListener("click",async()=>{await navigator.clipboard.writeText($("out").textContent);toast("Copied")});if(t[1]==="image"&&$("drop")){$("run").onclick=async()=>{const f=$("toolFiles").files[0];if(!f){toast("Choose an image");return}const b=await createImageBitmap(f),w=Number($("w").value)||b.width,h=Number($("h").value)||b.height,c=document.createElement("canvas");const scale=Math.min(w/b.width,h/b.height,1);c.width=Math.round(b.width*scale);c.height=Math.round(b.height*scale);c.getContext("2d").drawImage(b,0,0,c.width,c.height);const blob=await new Promise(r=>c.toBlob(r,"image/jpeg",.82)),u=URL.createObjectURL(blob);$("out").innerHTML='<img src="'+u+'"><div style="margin-top:8px">'+(blob.size/1024).toFixed(1)+' KB</div>';$("download").disabled=false;$("download").onclick=()=>{const a=document.createElement("a");a.href=u;a.download="fileforge-output.jpg";a.click()}}}}
+function route(){const raw=location.hash.slice(1)||"home",p=raw.split("/"),r=p.shift();show(r);if(r==="tools"){$("q").value=$("q").value||"";renderCats();toolCards("all",$("q").value)}if(r==="tool")renderTool(decodeURIComponent(p.join("/")))}
+nav();$("featured").innerHTML=TOOL_DEFS.slice(0,8).map(t=>'<a class="card tool" href="#tool/'+encodeURIComponent(t[0])+'"><span class="badge">'+esc(CAT_NAMES[t[1]]||t[1])+'</span><div class="icon">'+t[2]+'</div><h3>'+esc(t[0])+'</h3><p>'+esc(t[3])+'</p></a>').join("");
+$("homeSearch").onsubmit=e=>{e.preventDefault();location.hash="tools";setTimeout(()=>toolCards("all",$("q").value),50)};$("menu").onclick=()=>document.querySelector(".nav").classList.toggle("open");window.addEventListener("hashchange",route);route();setTimeout(()=>$("splash").classList.add("hide"),1300);
 </script>
 </body>
 </html>
