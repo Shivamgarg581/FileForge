@@ -64,13 +64,17 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 @media(max-width:940px){.hero{grid-template-columns:1fr}.kpis,.grid,.pulse,.results,.coverage,.tools,.compare,.split{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.menu{display:block}.nav.open .navlinks{display:flex;position:absolute;left:9px;right:9px;top:64px;background:#ffffff;padding:10px;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}}
 @media(max-width:620px){.wrap{width:min(100% - 16px,1180px)}.hero{padding-top:20px}.hero-main{padding:28px 22px;min-height:auto}.source{padding:22px}.hero h1{font-size:44px}.search{flex-direction:column}.kpis,.grid,.pulse,.results,.coverage,.tools,.compare,.split,.formgrid{grid-template-columns:1fr}.route-head{align-items:start;flex-direction:column}.route-head h1{font-size:38px}.twocol,.detail-grid{grid-template-columns:1fr}.table{font-size:13px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* Advanced UI layer */
+.app-shell{position:relative}.command{position:fixed;inset:auto 16px 16px auto;z-index:80}.fab{width:54px;height:54px;border-radius:18px;border:1px solid var(--line);background:var(--text);color:white;font-weight:1000;box-shadow:var(--shadow);cursor:pointer}.panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.metric-row:last-child{border-bottom:0}.trend-up{color:var(--bad)}.trend-down{color:var(--good)}.fresh{display:inline-flex;align-items:center;gap:7px}.dot{width:8px;height:8px;border-radius:999px;background:var(--good);box-shadow:0 0 0 5px rgba(19,138,91,.12)}.search-suggest{position:relative}.suggestions{position:absolute;left:0;right:0;top:58px;z-index:40;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);display:none;overflow:hidden}.suggestions.show{display:block}.suggestion{padding:12px 14px;cursor:pointer}.suggestion:hover{background:#eef8f3}@media(max-width:940px){.panel-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.panel-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="splash" id="splash"><div class="splash-inner"><div class="splash-logo">PA</div><div class="splash-title">PriceAtlas</div><div class="splash-sub">Know the price before you buy.</div><div class="loader"><i></i></div></div></div>
 
-<header class="top"><div class="wrap nav" id="nav"><a class="brand" href="#home"><span class="mark">PA</span><span><b>PriceAtlas</b><small>Price intelligence for India</small></span></a><button class="menu" id="menu" aria-label="Open navigation">☰</button><nav class="navlinks" id="navlinks"></nav></div></header>
+<header class="top"><div class="wrap nav" id="nav"><a class="brand" href="#home"><span class="mark">PA</span><span><b>PriceAtlas</b><small>Price intelligence for India</small></span></a><button class="menu" id="menu" aria-label="Open navigation">☰</button><nav class="navlinks" id="navlinks"></nav><div id="authSlot"></div></div></header>
 
+<div class="command"><button class="fab" id="quickAction" title="Quick actions" aria-label="Quick actions">+</button></div>
 <main id="app">
 <section class="route active" data-route="home"><div class="wrap">
 <div class="hero">
@@ -78,7 +82,7 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 <div class="eyebrow">EVIDENCE-AWARE PRICE INTELLIGENCE</div>
 <h1>Know the price <span style="color:var(--brand)">before</span> you buy.</h1>
 <p class="lead">Compare official reference prices, inspect historical movement, normalize quantities, and keep unknown or stale information visible instead of inventing local quotes.</p>
-<form class="search" id="heroForm"><input id="heroInput" autocomplete="off" placeholder="Search sugar, onion, tomato, oil…"><button class="btn">Search</button></form>
+<form class="search search-suggest" id="heroForm"><input id="heroInput" autocomplete="off" placeholder="Search product, brand, barcode, category…"><button class="btn">Search</button><div class="suggestions" id="heroSuggestions"></div></form>
 <div class="micro"><span>✓ Source + date shown</span><span>✓ Deterministic math</span><span>✓ No invented local prices</span></div>
 </div>
 <aside class="card source">
@@ -98,6 +102,12 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 
 <section class="section"><div class="section-head"><div><div class="eyebrow">EVERYDAY</div><h2>Reference prices</h2></div><a class="ghost" href="#search">View all →</a></div><div id="featured" class="grid"></div></section>
 
+
+<section class="section"><div class="section-head"><div><div class="eyebrow">ADVANCED INTELLIGENCE</div><h2>PriceAtlas control center</h2><div class="muted">Search, compare, monitor and act from one place.</div></div><div class="fresh"><span class="dot"></span><span class="small muted">Evidence-first mode</span></div></div><div class="panel-grid">
+<div class="card panel"><div class="chip">PRICE EXPLORER</div><h3>Find the product</h3><p class="muted">Search by name, brand, variant, category or identifier.</p><a class="btn" href="#search">Open explorer</a></div>
+<div class="card panel"><div class="chip">OFFER RADAR</div><h3>Compare channels</h3><p class="muted">Bring authorized online offers and verified local observations into one normalized view.</p><a class="btn" href="#markets">Open radar</a></div>
+<div class="card panel"><div class="chip">PRICE GUARD</div><h3>Watch a target</h3><p class="muted">Target-price alerts become active once your account and a real observation source are connected.</p><a class="btn" href="#product/sugar">Explore</a></div>
+</div></section>
 <section class="section split" style="grid-template-columns:1fr 1fr"><div class="card panel"><div class="chip">TRUST MODEL</div><h2>One number is never enough.</h2><div class="micro" style="margin-top:12px;display:grid"><span>Published official reference</span><span>Verified community observations</span><span>Derived calculations</span><span>Unknown when evidence is missing</span></div></div><div class="card panel"><div class="chip">PRICE DNA</div><h2>Understand how prices behave.</h2><p class="muted">Track trend, spread, stability, seasonality and anomalies as history accumulates — without turning inference into “live truth”.</p><a class="btn" href="#methodology">Read methodology</a></div></section>
 </div></section>
 
@@ -273,6 +283,17 @@ function route(){
  if(name==="report")$("reportLink").href="https://github.com/"+REPO+"/issues/new?template=price-report.yml";
 }
 $("navlinks").innerHTML=["home","search","markets","compare","basket","tools","report"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a>';
+function setupAdvanced(){
+ const input=$("heroInput"), box=$("heroSuggestions");
+ const suggestions=["sugar","rice","wheat","atta","gram dal","tur arhar dal","urad dal","moong dal","masoor dal","groundnut oil","mustard oil","sunflower oil","milk","potato","onion","tomato","salt","grocery","vegetables","electronics","clothing"];
+ const draw=(q)=>{const v=q.trim().toLowerCase();const m=suggestions.filter(x=>!v||x.includes(v)).slice(0,6);box.innerHTML=m.map(x=>'<div class="suggestion">'+escapeHtml(x)+'</div>').join("");box.classList.toggle("show",m.length>0)};
+ input.addEventListener("input",()=>draw(input.value));
+ box.addEventListener("click",e=>{const t=e.target.closest(".suggestion");if(!t)return;input.value=t.textContent;box.classList.remove("show");location.hash="search/"+encodeURIComponent(input.value)});
+ document.addEventListener("click",e=>{if(!e.target.closest(".search-suggest"))box.classList.remove("show")});
+ $("quickAction").onclick=()=>{const actions=["#search","#compare","#basket","#tools","#markets","#report"];location.hash=actions[Math.floor(Math.random()*actions.length)]};
+}
+setupAdvanced();
+
 $("menu").onclick=()=>$("nav").classList.toggle("open");
 $("heroForm").onsubmit=e=>{e.preventDefault();const q=$("heroInput").value.trim();location.hash=q?"search/"+encodeURIComponent(q):"search"};
 $("searchBtn").onclick=()=>search($("searchInput").value);$("searchInput").onkeydown=e=>{if(e.key==="Enter")search($("searchInput").value)};
