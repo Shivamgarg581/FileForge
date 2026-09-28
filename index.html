@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07130f">
-<meta name="description" content="PriceAtlas — evidence-aware price intelligence for India.">
+<meta name="theme-color" content="#087f5b"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://priceatlas-one.vercel.app/">
+<meta name="description" content="PriceAtlas — compare prices, inspect price history, normalize unit costs and discover sourced prices across India.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://nominatim.openstreetmap.org; form-action 'self' https://github.com; upgrade-insecure-requests">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
@@ -130,6 +130,12 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 <section class="route" data-route="search"><div class="wrap"><div class="route-head"><div><div class="eyebrow">SEARCH</div><h1>Search the catalogue.</h1><p class="muted">Official reference products plus verified local observations when available.</p></div><div class="search" style="max-width:460px;width:100%"><input id="searchInput" placeholder="Product, category or Hindi name"><button class="btn" id="searchBtn">Search</button></div></div><div id="searchMeta" class="muted"></div><div id="results" class="results" style="margin-top:14px"></div></div></section>
 
 <section class="route" data-route="catalog"><div class="wrap"><div class="route-head"><div><div class="eyebrow">CATALOG</div><h1>Browse the product universe.</h1><p class="muted">1,000,000+ target product variants through normalized ingestion. Prices are shown only when evidence exists.</p></div></div><div class="card panel"><div class="search"><input id="catalogInput" placeholder="Search category or subcategory…"><button class="btn" id="catalogBtn">Explore</button></div><div id="catalogMeta" class="muted" style="margin-top:12px"></div><div id="catalogGrid" class="grid" style="margin-top:14px"></div></div></div></section>
+
+<section class="route" data-route="compare-hub"><div class="wrap"><div class="route-head"><div><div class="eyebrow">PRICE INTELLIGENCE</div><h1>One place for every buying decision.</h1><p class="muted">Find a product, inspect evidence, normalize the unit cost, compare channels and build a basket.</p></div></div><div class="panel-grid">
+<div class="card panel"><div class="chip">DISCOVER</div><h2>Search & Catalog</h2><p class="muted">Browse the sourced product universe and taxonomy.</p><a class="btn" href="#search">Search now</a></div>
+<div class="card panel"><div class="chip">VERIFY</div><h2>History & evidence</h2><p class="muted">See dates, sources, freshness and available observations.</p><a class="btn" href="#markets">Open evidence</a></div>
+<div class="card panel"><div class="chip">BUY</div><h2>Compare & Basket</h2><p class="muted">Normalize pack sizes and calculate a reference basket.</p><a class="btn" href="#compare">Compare</a></div>
+</div></div></section>
 
 <section class="route" data-route="about"><div class="wrap"><div class="route-head"><div><div class="eyebrow">ABOUT PRICEATLAS</div><h1>Price intelligence you can inspect.</h1><p class="muted">PriceAtlas separates source observations, calculations and missing evidence so users can understand what a number actually means.</p></div></div><div class="panel-grid"><div class="card panel"><div class="chip">EVIDENCE</div><h2>Source + time + context</h2><p class="muted">Every published price is tied to a source and observation date where available.</p></div><div class="card panel"><div class="chip">COMPARE</div><h2>Normalize before comparing</h2><p class="muted">Pack sizes and compatible units are normalized before unit-price comparisons.</p></div><div class="card panel"><div class="chip">MISSING DATA</div><h2>Unknown stays unknown</h2><p class="muted">PriceAtlas does not create local or online prices when it has no evidence for them.</p></div></div></div></section>
 
@@ -318,7 +324,7 @@ function route(){
  if(name==="tools")tools();
  if(name==="report")$("reportLink").href="https://github.com/"+REPO+"/issues/new?template=price-report.yml";
 }
-$("navlinks").innerHTML=["home","search","catalog","markets","compare","basket","tools","report","about"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>';
+$("navlinks").innerHTML=["home","search","catalog","markets","compare","compare-hub","basket","tools","report","about"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a><a href="#privacy">Privacy</a><a href="#contact">Contact</a>';
 function setupAdvanced(){
  const input=$("heroInput"), box=$("heroSuggestions");
  const suggestions=["sugar","rice","wheat","atta","gram dal","tur arhar dal","urad dal","moong dal","masoor dal","groundnut oil","mustard oil","sunflower oil","milk","potato","onion","tomato","salt","grocery","vegetables","electronics","clothing"];
