@@ -18,6 +18,17 @@ This branch is production-oriented and contains no illustrative local shop price
 - [ ] Enable repository secret scanning and push protection where available.
 - [ ] Add uptime monitoring before large-scale promotion.
 
+## Monetization launch
+
+- [ ] Join Amazon Associates and create current Creators API access.
+- [ ] Join Flipkart Affiliate and configure approved tracking/deep links.
+- [ ] Add merchant affiliate links only where the source/program permits them.
+- [ ] Apply for Google AdSense when the site has sufficient original content and meets eligibility requirements.
+- [ ] Add the exact AdSense publisher ID to `ads.txt` after approval.
+- [ ] Keep ads visually distinct from PriceAtlas navigation, product cards and interactive controls.
+- [ ] Never ask users to click ads or generate artificial ad impressions/clicks.
+- [ ] Clearly disclose affiliate relationships.
+
 ## Important
 
-GitHub Pages is a public static host. It is not the same security boundary as a full SaaS backend. The full security architecture supplied for BuyRight is documented in `SECURITY.md`; backend-only controls must be added before introducing private accounts, sensitive user data, payments, or privileged APIs.
+PriceAtlas uses only two revenue channels: affiliate commission and Google AdSense. Commercial links do not alter price evidence or comparison calculations.
