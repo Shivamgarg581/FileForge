@@ -105,7 +105,7 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 
 <section class="route" data-route="product"><div class="wrap"><div style="padding-top:30px"><a class="ghost" href="#search">← Back</a></div><div id="product"></div></div></section>
 
-<section class="route" data-route="markets"><div class="wrap"><div class="route-head"><div><div class="eyebrow">MARKETS</div><h1>Local evidence.</h1><p class="muted">Only verified local observations are shown as local prices.</p></div><a class="btn" href="#report">Report a price</a></div><div id="marketSummary"></div><section class="section card panel"><div class="chip">COVERAGE</div><h2>Where evidence exists</h2><div id="coverage" class="coverage"></div></section></div></section>
+<section class="route" data-route="markets"><div class="wrap"><div class="route-head"><div><div class="eyebrow">MARKETS + SOURCES</div><h1>Local evidence.</h1><p class="muted">Only verified local observations are shown as local prices.</p></div><a class="btn" href="#report">Report a price</a></div><div id="marketSummary"></div><section class="section card panel"><div class="chip">COVERAGE</div><h2>Where evidence exists</h2><div id="coverage" class="coverage"></div></section><section class="section card panel"><div class="chip">SOURCE NETWORK</div><h2>Connected price channels</h2><div id="sources" class="grid"></div></section></div></section>
 
 <section class="route" data-route="compare"><div class="wrap"><div class="route-head"><div><div class="eyebrow">TRUE UNIT PRICE</div><h1>Compare quantities correctly.</h1><p class="muted">Normalize compatible units before calling one option cheaper.</p></div></div><div class="compare"><div class="card panel"><div class="chip">OPTION A</div><div class="formgrid"><div class="field"><label>Name</label><input id="aName" placeholder="Product A"></div><div class="field"><label>Price ₹</label><input id="aPrice" type="number" step="0.01"></div><div class="field"><label>Quantity</label><input id="aQty" type="number" step="0.001"></div><div class="field"><label>Unit</label><select id="aUnit"><option>kg</option><option>g</option><option>litre</option><option>ml</option><option>piece</option></select></div></div><div id="aOut" class="calc">—</div></div><div class="card panel"><div class="chip">OPTION B</div><div class="formgrid"><div class="field"><label>Name</label><input id="bName" placeholder="Product B"></div><div class="field"><label>Price ₹</label><input id="bPrice" type="number" step="0.01"></div><div class="field"><label>Quantity</label><input id="bQty" type="number" step="0.001"></div><div class="field"><label>Unit</label><select id="bUnit"><option>kg</option><option>g</option><option>litre</option><option>ml</option><option>piece</option></select></div></div><div id="bOut" class="calc">—</div></div></div><div id="compareOut" class="section"></div></div></section>
 
@@ -132,7 +132,7 @@ Onion | 1 | 54.13</textarea><button class="btn" style="margin-top:12px" id="rece
 
 <script>
 const REPO="Shivamgarg581/priceatlas";
-const URLS={official:"./data/official-prices.json",community:"./data/community-prices.json",history:"./data/price-history.json"};
+const URLS={official:"./data/official-prices.json",community:"./data/community-prices.json",history:"./data/price-history.json",sources:"./data/source-registry.json"};
 const PRODUCT_META={
  rice:{name:"Rice",category:"Grocery",unit:"kg",aliases:["rice","chawal"]},
  wheat:{name:"Wheat",category:"Grocery",unit:"kg",aliases:["wheat","gehun","gehu"]},
@@ -157,7 +157,7 @@ const PRODUCT_META={
  tomato:{name:"Tomato",category:"Vegetables",unit:"kg",aliases:["tomato","tamatar"]},
  salt:{name:"Salt",category:"Grocery",unit:"kg",aliases:["salt","namak"]}
 };
-let official=null, community={reports:[]}, historyData=[];
+let official=null, community={reports:[]}, historyData=[], sourceRegistry={sources:[]};
 const $=id=>document.getElementById(id);
 const money=n=>Number.isFinite(Number(n))?"₹"+Number(n).toFixed(2):"—";
 function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
@@ -227,6 +227,14 @@ function productPage(slug){
  '</div><div class="section"><div class="chip">HISTORY</div><h2>Dated movement</h2><div class="bars">'+bars+'</div></div>'+
  '<div class="section notice"><b>Price truth:</b> this number is an official national reference for '+escapeHtml(official.observedOn)+'. It is not a quote for a specific shop.</div></div>';
 }
+function renderSources(){
+ const el=$("sources"); if(!el||!sourceRegistry.sources) return;
+ el.innerHTML=sourceRegistry.sources.map(src=>{
+   const cls=src.status==="connected-snapshot"?"good":src.status==="community"?"normal":"unknown";
+   const label=src.status==="connected-snapshot"?"Connected":src.status==="community"?"Community":"Connector ready / authorization required";
+   return '<div class="tile"><div class="chip">'+escapeHtml(src.channel||"source")+'</div><h3>'+escapeHtml(src.name)+'</h3><div><span class="pill '+cls+'">'+escapeHtml(label)+'</span></div><p class="small muted">'+escapeHtml(src.coverage||"")+'</p></div>';
+ }).join("");
+}
 function markets(){
  const reports=Array.isArray(community.reports)?community.reports:[];
  const by={};reports.forEach(r=>{(by[r.market] ||= []).push(r)});
@@ -276,7 +284,7 @@ Promise.all([
  fetch(URLS.official,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("official");return r.json()}),
  fetch(URLS.community,{cache:"no-store"}).then(r=>r.ok?r.json():{reports:[]}),
  fetch(URLS.history,{cache:"no-store"}).then(r=>r.ok?r.json():[])
-]).then(x=>{official=x[0];community=x[1]||{reports:[]};historyData=Array.isArray(x[2])?x[2]:[];$("sugar").textContent=money(official.retail.sugar);$("onion").textContent=money(official.retail.onion);$("tomato").textContent=money(official.retail.tomato);$("officialDate").textContent="Observed "+official.observedOn;$("sourceLink").href=official.sourceUrl;renderKpis();renderFeatured();renderPulse();route()}).catch(()=>{$("app").innerHTML='<div class="wrap" style="padding:80px 0"><div class="card panel"><h1>PriceAtlas could not load its verified dataset.</h1><p class="muted">The site failed closed rather than inventing prices. Check the versioned data files and retry.</p></div></div>'});
+]).then(x=>{official=x[0];community=x[1]||{reports:[]};historyData=Array.isArray(x[2])?x[2]:[];$("sugar").textContent=money(official.retail.sugar);$("onion").textContent=money(official.retail.onion);$("tomato").textContent=money(official.retail.tomato);$("officialDate").textContent="Observed "+official.observedOn;$("sourceLink").href=official.sourceUrl;renderKpis();renderFeatured();renderPulse();renderSources();route()}).catch(()=>{$("app").innerHTML='<div class="wrap" style="padding:80px 0"><div class="card panel"><h1>PriceAtlas could not load its verified dataset.</h1><p class="muted">The site failed closed rather than inventing prices. Check the versioned data files and retry.</p></div></div>'});
 setTimeout(()=>{$("splash").classList.add("hide")},1400);
 window.addEventListener("hashchange",route);
 if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
