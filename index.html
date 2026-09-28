@@ -68,47 +68,35 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 /* Advanced UI layer */
 .app-shell{position:relative}.command{position:fixed;inset:auto 16px 16px auto;z-index:80}.fab{width:54px;height:54px;border-radius:18px;border:1px solid var(--line);background:var(--text);color:white;font-weight:1000;box-shadow:var(--shadow);cursor:pointer}.panel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.metric-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.metric-row:last-child{border-bottom:0}.trend-up{color:var(--bad)}.trend-down{color:var(--good)}.fresh{display:inline-flex;align-items:center;gap:7px}.dot{width:8px;height:8px;border-radius:999px;background:var(--good);box-shadow:0 0 0 5px rgba(19,138,91,.12)}.search-suggest{position:relative}.suggestions{position:absolute;left:0;right:0;top:58px;z-index:40;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);display:none;overflow:hidden}.suggestions.show{display:block}.suggestion{padding:12px 14px;cursor:pointer}.suggestion:hover{background:#eef8f3}@media(max-width:940px){.panel-grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.panel-grid{grid-template-columns:1fr}}
 
-<style>
+
+/* FileForge final motion/accessibility layer */
 .hero-main .stats .card{box-shadow:none}
 .notice{padding:13px 15px;border-radius:14px;background:#f7f7ff;border:1px solid #dedcff;color:#4f46b5}
-.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.dropzone button{position:relative;z-index:2}
+.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.dropzone button{position:relative;z-index:2}
 .tool-search{margin:14px 0}.tool-search input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:14px}
-
-/* FileForge motion suite: 100+ reusable animation hooks */
-:root{--ease-spring:cubic-bezier(.2,.8,.2,1);--ease-smooth:cubic-bezier(.4,0,.2,1)}
-.motion-ready .hero-main{animation:ffFadeUp .8s var(--ease-spring) both}
-.motion-ready .hero-side{animation:ffFadeUp .9s .08s var(--ease-spring) both}
-.motion-ready .stats .stat{animation:ffFadeUp .55s var(--ease-spring) both}
-.motion-ready .stats .stat:nth-child(2){animation-delay:.06s}.motion-ready .stats .stat:nth-child(3){animation-delay:.12s}.motion-ready .stats .stat:nth-child(4){animation-delay:.18s}
-.motion-ready .tool{animation:ffReveal .6s var(--ease-spring) both}
-.tool:nth-child(3n){animation-delay:.04s}.tool:nth-child(3n+1){animation-delay:.08s}.tool:nth-child(4n){animation-delay:.12s}
-@keyframes ffFadeUp{from{opacity:0;transform:translateY(28px) scale(.985)}to{opacity:1;transform:none}}
-@keyframes ffReveal{from{opacity:0;transform:translateY(20px) rotateX(8deg)}to{opacity:1;transform:none}}
-@keyframes ffFloat{50%{transform:translateY(-8px)}}@keyframes ffBreath{50%{transform:scale(1.035)}}@keyframes ffPulseRing{50%{box-shadow:0 0 0 12px rgba(99,91,255,.04)}}
-@keyframes ffShimmer{to{background-position:200% 0}}@keyframes ffSpin{to{transform:rotate(360deg)}}@keyframes ffWiggle{25%{transform:rotate(-2deg)}75%{transform:rotate(2deg)}}
-@keyframes ffSlideLeft{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}@keyframes ffSlideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
-@keyframes ffScaleIn{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:scale(1)}}@keyframes ffScaleOut{to{opacity:0;transform:scale(.92)}}
-@keyframes ffFlipIn{from{opacity:0;transform:rotateX(-70deg)}to{opacity:1;transform:none}}@keyframes ffBlurIn{from{opacity:0;filter:blur(12px)}to{opacity:1;filter:blur(0)}}
-@keyframes ffGlow{50%{box-shadow:0 0 36px rgba(99,91,255,.22)}}@keyframes ffGradient{to{background-position:200% center}}
-@keyframes ffDots{0%,80%,100%{transform:scale(.6);opacity:.35}40%{transform:scale(1);opacity:1}}
-@keyframes ffBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-@keyframes ffJelly{0%,100%{transform:scale(1,1)}35%{transform:scale(1.08,.92)}65%{transform:scale(.95,1.05)}}
-@keyframes ffShake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
-.motion-ready .brand-mark{animation:ffBreath 3s ease-in-out infinite}
-.motion-ready .brand-mark:after{animation:ffShimmer 2.5s linear infinite}
-.motion-ready .btn{position:relative;overflow:hidden}.motion-ready .btn:after{content:"";position:absolute;inset:-60% auto -60% -30%;width:28%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:ffShine 3.4s infinite}
-@keyframes ffShine{0%,55%{left:-40%}85%,100%{left:130%}}
-.motion-ready .card{transition:transform .35s var(--ease-spring),box-shadow .35s,border-color .35s}.motion-ready .card:hover{transform:translateY(-4px)}
-.motion-ready .dropzone.drag{animation:ffPulseRing .8s infinite}
-.motion-ready .loader i{animation:ffLoader .95s cubic-bezier(.2,.6,.2,1) infinite}
-@keyframes ffLoader{0%{transform:translateX(-110%)}55%{transform:translateX(210%)}100%{transform:translateX(520%)}}
-.motion-ready .orb{animation:ffOrbit 7s ease-in-out infinite}.motion-ready .orb.o2{animation-delay:-1.75s}.motion-ready .orb.o3{animation-delay:-3.5s}.motion-ready .orb.o4{animation-delay:-5.25s}
-@keyframes ffOrbit{0%,100%{transform:translateY(-4px) rotate(0)}50%{transform:translateY(7px) rotate(7deg)}}
-.motion-ready .splash-logo{animation:ffLogoIntro 1.5s var(--ease-spring) both,ffFloat 2.2s 1.5s ease-in-out infinite}
-@keyframes ffLogoIntro{from{opacity:0;transform:scale(.55) rotate(-14deg);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
-@media(prefers-reduced-motion:reduce){.motion-ready .btn:after{animation:none}.motion-ready .card:hover{transform:none}}
-</style></style>
+@keyframes ffFade{from{opacity:0}to{opacity:1}}@keyframes ffRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes ffZoom{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}@keyframes ffBlur{from{opacity:0;filter:blur(12px)}to{opacity:1;filter:blur(0)}}
+@keyframes ffFlip{from{opacity:0;transform:perspective(700px) rotateX(-70deg)}to{opacity:1;transform:none}}
+@keyframes ffSwing{20%{transform:rotate(7deg)}40%{transform:rotate(-5deg)}60%{transform:rotate(3deg)}80%{transform:rotate(-1deg)}100%{transform:none}}
+@keyframes ffJello{30%{transform:skewX(-5deg) scaleX(.98)}60%{transform:skewX(4deg) scaleX(1.02)}100%{transform:none}}
+@keyframes ffShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+@keyframes ffFloat{50%{transform:translateY(-9px)}}@keyframes ffGlow{50%{filter:drop-shadow(0 0 20px rgba(99,91,255,.35))}}
+@keyframes ffSweep{from{transform:translateX(-130%) skewX(-18deg)}to{transform:translateX(180%) skewX(-18deg)}}
+@keyframes ffPulse{50%{box-shadow:0 0 0 10px rgba(99,91,255,.08)}}@keyframes ffSpin{to{transform:rotate(360deg)}}
+@keyframes ffBreathe{50%{transform:scale(1.035)}}@keyframes ffDrift{50%{transform:translate(10px,-8px)}}
+@keyframes ffDots{0%,80%,100%{opacity:.3;transform:scale(.6)}40%{opacity:1;transform:scale(1)}}
+@keyframes ffShimmer{to{background-position:200% center}}@keyframes ffOrbit{to{transform:rotate(360deg) translateX(88px) rotate(-360deg)}}
+@keyframes ffProgress{from{width:0}}@keyframes ffRipple{to{box-shadow:0 0 0 18px rgba(99,91,255,0)}}
+.motion-ready .hero-main{animation:ffRise .75s var(--ease-spring) both}.motion-ready .hero-side{animation:ffZoom .8s .08s var(--ease-spring) both}
+.motion-ready .stats .stat{animation:ffRise .55s var(--ease-spring) both}.motion-ready .stats .stat:nth-child(2){animation-delay:.06s}.motion-ready .stats .stat:nth-child(3){animation-delay:.12s}.motion-ready .stats .stat:nth-child(4){animation-delay:.18s}
+.motion-ready .tool{animation:ffFade .5s ease both}.motion-ready .tool:hover{transform:translateY(-6px);transition:transform .25s var(--ease-spring)}
+.motion-ready .brand-mark{animation:ffBreathe 3s ease-in-out infinite,.motion-ready .brand-mark{animation:ffBreathe 3s ease-in-out infinite}
+.motion-ready .splash-logo{animation:ffZoom .8s var(--ease-spring) both,ffFloat 2.4s 1s ease-in-out infinite}
+.motion-ready .loader i{animation:ffSweep 1.15s linear infinite}.motion-ready .orb{animation:ffOrbit 6s linear infinite}
+.motion-ready .btn{position:relative;overflow:hidden}.motion-ready .btn:after{content:"";position:absolute;inset:-70% auto -70% -30%;width:24%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:ffSweep 3.5s ease-in-out infinite}
+.motion-ready .dropzone.drag{animation:ffPulse .7s infinite}.motion-ready input:focus,.motion-ready textarea:focus,.motion-ready select:focus{animation:ffPulse 1.2s infinite}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
 
 <style>
 .advanced-shell{max-width:1180px;margin:28px auto 0;padding:0 14px}
