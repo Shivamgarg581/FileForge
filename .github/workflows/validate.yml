@@ -1,4 +1,4 @@
-name: Validate BuyRight
+name: Validate PriceAtlas
 on:
   pull_request:
   push:
