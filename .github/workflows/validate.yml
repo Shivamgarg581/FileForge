@@ -28,6 +28,10 @@ jobs:
           assert d.get('observedOn')
           assert len(d.get('retail',{})) >= 10
           print('official records:', len(d['retail']))
+          c=json.load(open('data/catalog-taxonomy.json'))
+          assert c.get('catalog_growth',{}).get('target_records',0) >= 100000
+          assert len(c.get('categories',[])) >= 20
+          print('catalog target:', c['catalog_growth']['target_records'])
           PY
       - name: Validate JavaScript in HTML
         run: |
