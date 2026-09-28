@@ -113,6 +113,7 @@ h2{letter-spacing:-.03em;margin:6px 0 10px}.lead{font-size:18px;color:var(--mute
 
 <section class="route" data-route="search"><div class="wrap"><div class="route-head"><div><div class="eyebrow">SEARCH</div><h1>Search the catalogue.</h1><p class="muted">Official reference products plus verified local observations when available.</p></div><div class="search" style="max-width:460px;width:100%"><input id="searchInput" placeholder="Product, category or Hindi name"><button class="btn" id="searchBtn">Search</button></div></div><div id="searchMeta" class="muted"></div><div id="results" class="results" style="margin-top:14px"></div></div></section>
 
+<section class="route" data-route="catalog"><div class="wrap"><div class="route-head"><div><div class="eyebrow">CATALOG</div><h1>Browse the product universe.</h1><p class="muted">1,000,000+ target product variants through normalized ingestion. Prices are shown only when evidence exists.</p></div></div><div class="card panel"><div class="search"><input id="catalogInput" placeholder="Search category or subcategory…"><button class="btn" id="catalogBtn">Explore</button></div><div id="catalogMeta" class="muted" style="margin-top:12px"></div><div id="catalogGrid" class="grid" style="margin-top:14px"></div></div></div></section>
 <section class="route" data-route="product"><div class="wrap"><div style="padding-top:30px"><a class="ghost" href="#search">← Back</a></div><div id="product"></div></div></section>
 
 <section class="route" data-route="markets"><div class="wrap"><div class="route-head"><div><div class="eyebrow">MARKETS + SOURCES</div><h1>Local evidence.</h1><p class="muted">Only verified local observations are shown as local prices.</p></div><a class="btn" href="#report">Report a price</a></div><div id="marketSummary"></div><section class="section card panel"><div class="chip">COVERAGE</div><h2>Where evidence exists</h2><div id="coverage" class="coverage"></div></section><section class="section card panel"><div class="chip">SOURCE NETWORK</div><h2>Connected price channels</h2><div id="sources" class="grid"></div></section></div></section>
@@ -142,7 +143,7 @@ Onion | 1 | 54.13</textarea><button class="btn" style="margin-top:12px" id="rece
 
 <script>
 const REPO="Shivamgarg581/priceatlas";
-const URLS={official:"./data/official-prices.json",community:"./data/community-prices.json",history:"./data/price-history.json",sources:"./data/source-registry.json"};
+const URLS={official:"./data/official-prices.json",community:"./data/community-prices.json",history:"./data/price-history.json",sources:"./data/source-registry.json",catalog:"./data/catalog-taxonomy.json"};
 const PRODUCT_META={
  rice:{name:"Rice",category:"Grocery",unit:"kg",aliases:["rice","chawal"]},
  wheat:{name:"Wheat",category:"Grocery",unit:"kg",aliases:["wheat","gehun","gehu"]},
@@ -167,7 +168,7 @@ const PRODUCT_META={
  tomato:{name:"Tomato",category:"Vegetables",unit:"kg",aliases:["tomato","tamatar"]},
  salt:{name:"Salt",category:"Grocery",unit:"kg",aliases:["salt","namak"]}
 };
-let official=null, community={reports:[]}, historyData=[], sourceRegistry={sources:[]};
+let official=null, community={reports:[]}, historyData=[], sourceRegistry={sources:[]}, taxonomy=null;
 const $=id=>document.getElementById(id);
 const money=n=>Number.isFinite(Number(n))?"₹"+Number(n).toFixed(2):"—";
 function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m]));}
@@ -237,6 +238,18 @@ function productPage(slug){
  '</div><div class="section"><div class="chip">HISTORY</div><h2>Dated movement</h2><div class="bars">'+bars+'</div></div>'+
  '<div class="section notice"><b>Price truth:</b> this number is an official national reference for '+escapeHtml(official.observedOn)+'. It is not a quote for a specific shop.</div></div>';
 }
+function renderCatalog(){
+ const q=normalize($("catalogInput")?.value||"");
+ const cats=taxonomy?.categories||[];
+ const list=q?cats.filter(c=>[c.name,c.slug,...(c.subcategories||[])].some(x=>normalize(x).includes(q))):cats;
+ const target=Number(taxonomy?.catalog_growth?.target_records||0);
+ $("catalogMeta").textContent=target.toLocaleString()+"+ target variants · "+list.length+" categories";
+ $("catalogGrid").innerHTML=list.map(c=>{
+   const key=c.slug.replaceAll("-","_");
+   const count=Number(taxonomy?.catalog_growth?.category_targets?.[key]||0);
+   return '<div class="tile"><div class="chip">CATEGORY</div><h3>'+escapeHtml(c.name)+'</h3><p class="small muted">'+(c.subcategories||[]).slice(0,8).map(escapeHtml).join(" · ")+'</p><div class="price" style="font-size:24px">'+count.toLocaleString()+'</div><div class="small muted">target variants</div></div>';
+ }).join("")||'<div class="empty" style="grid-column:1/-1">No category matched.</div>';
+}
 function renderSources(){
  const el=$("sources"); if(!el||!sourceRegistry.sources) return;
  el.innerHTML=sourceRegistry.sources.map(src=>{
@@ -277,12 +290,13 @@ function route(){
  if(name==="search"){$("searchInput").value=param?decodeURIComponent(param):"";search($("searchInput").value)}
  if(name==="product")productPage(decodeURIComponent(param||""));
  if(name==="markets")markets();
+ if(name==="catalog")renderCatalog();
  if(name==="compare")compareCalc();
  if(name==="basket")basket();
  if(name==="tools")tools();
  if(name==="report")$("reportLink").href="https://github.com/"+REPO+"/issues/new?template=price-report.yml";
 }
-$("navlinks").innerHTML=["home","search","markets","compare","basket","tools","report"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a>';
+$("navlinks").innerHTML=["home","search","catalog","markets","compare","basket","tools","report"].map(x=>'<a href="#'+x+'">'+x[0].toUpperCase()+x.slice(1)+'</a>').join("")+'<a href="#methodology">Method</a><a href="#security">Security</a>';
 function setupAdvanced(){
  const input=$("heroInput"), box=$("heroSuggestions");
  const suggestions=["sugar","rice","wheat","atta","gram dal","tur arhar dal","urad dal","moong dal","masoor dal","groundnut oil","mustard oil","sunflower oil","milk","potato","onion","tomato","salt","grocery","vegetables","electronics","clothing"];
@@ -304,8 +318,10 @@ function toast(t){$("toast").textContent=t;$("toast").classList.add("show");clea
 Promise.all([
  fetch(URLS.official,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("official");return r.json()}),
  fetch(URLS.community,{cache:"no-store"}).then(r=>r.ok?r.json():{reports:[]}),
- fetch(URLS.history,{cache:"no-store"}).then(r=>r.ok?r.json():[])
-]).then(x=>{official=x[0];community=x[1]||{reports:[]};historyData=Array.isArray(x[2])?x[2]:[];$("sugar").textContent=money(official.retail.sugar);$("onion").textContent=money(official.retail.onion);$("tomato").textContent=money(official.retail.tomato);$("officialDate").textContent="Observed "+official.observedOn;$("sourceLink").href=official.sourceUrl;renderKpis();renderFeatured();renderPulse();renderSources();route()}).catch(()=>{$("app").innerHTML='<div class="wrap" style="padding:80px 0"><div class="card panel"><h1>PriceAtlas could not load its verified dataset.</h1><p class="muted">The site failed closed rather than inventing prices. Check the versioned data files and retry.</p></div></div>'});
+ fetch(URLS.history,{cache:"no-store"}).then(r=>r.ok?r.json():[]),
+ fetch(URLS.sources,{cache:"no-store"}).then(r=>r.ok?r.json():{sources:[]}),
+ fetch(URLS.catalog,{cache:"no-store"}).then(r=>r.ok?r.json():{categories:[]})
+]).then(x=>{official=x[0];community=x[1]||{reports:[]};historyData=Array.isArray(x[2])?x[2]:[];sourceRegistry=x[3]||{sources:[]};taxonomy=x[4]||{categories:[]};$("sugar").textContent=money(official.retail.sugar);$("onion").textContent=money(official.retail.onion);$("tomato").textContent=money(official.retail.tomato);$("officialDate").textContent="Observed "+official.observedOn;$("sourceLink").href=official.sourceUrl;renderKpis();renderFeatured();renderPulse();renderSources();route()}).catch(()=>{$("app").innerHTML='<div class="wrap" style="padding:80px 0"><div class="card panel"><h1>PriceAtlas could not load its verified dataset.</h1><p class="muted">The site failed closed rather than inventing prices. Check the versioned data files and retry.</p></div></div>'});
 setTimeout(()=>{$("splash").classList.add("hide")},1400);
 window.addEventListener("hashchange",route);
 if("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js").catch(()=>{});
