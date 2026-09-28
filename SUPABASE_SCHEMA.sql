@@ -160,3 +160,164 @@ create table if not exists price_history_daily (
   created_at timestamptz not null default now(),
   unique(product_id, merchant_id, market_id, channel, observation_date)
 );
+
+-- PriceAtlas platform expansion: users, favorites, shopping lists, product catalog,
+-- online/local merchant profiles, offers, price alerts, receipts, reviews and analytics.
+create table if not exists profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  display_name text,
+  language text default 'en',
+  city text,
+  state text,
+  country text default 'IN',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists product_variants (
+  id uuid primary key default gen_random_uuid(),
+  product_id uuid references products(id) on delete cascade,
+  canonical_name text not null,
+  brand text,
+  variant text,
+  pack_size numeric(12,4),
+  pack_unit text,
+  barcode text,
+  gtin text,
+  mpn text,
+  attributes jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+create index if not exists product_variants_search
+  on product_variants using gin (to_tsvector('simple', coalesce(canonical_name,'') || ' ' || coalesce(brand,'') || ' ' || coalesce(variant,'')));
+
+create table if not exists merchants (
+  id uuid primary key default gen_random_uuid(),
+  name text not null,
+  channel text not null check (channel in ('online','local_shop')),
+  domain text,
+  city text,
+  district text,
+  state text,
+  latitude double precision,
+  longitude double precision,
+  verified boolean not null default false,
+  active boolean not null default true,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists offers (
+  id uuid primary key default gen_random_uuid(),
+  product_variant_id uuid references product_variants(id) on delete cascade,
+  merchant_id uuid references merchants(id) on delete cascade,
+  price numeric(12,2) not null check (price >= 0),
+  mrp numeric(12,2),
+  quantity numeric(12,4) not null check (quantity > 0),
+  unit text not null,
+  shipping numeric(12,2) default 0,
+  coupon numeric(12,2) default 0,
+  availability text,
+  offer_url text,
+  source_name text,
+  observed_at timestamptz not null,
+  verification_status text not null default 'unverified',
+  created_at timestamptz not null default now()
+);
+create index if not exists offers_product_time on offers(product_variant_id, observed_at desc);
+create index if not exists offers_merchant_time on offers(merchant_id, observed_at desc);
+
+create table if not exists favorite_products (
+  user_id uuid references auth.users(id) on delete cascade,
+  product_id uuid references products(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  primary key(user_id, product_id)
+);
+
+create table if not exists shopping_lists (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete cascade,
+  name text not null,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists shopping_list_items (
+  id uuid primary key default gen_random_uuid(),
+  list_id uuid references shopping_lists(id) on delete cascade,
+  product_id uuid references products(id) on delete cascade,
+  quantity numeric(12,4) not null default 1,
+  unit text not null default 'piece',
+  checked boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists price_alerts (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete cascade,
+  product_id uuid references products(id) on delete cascade,
+  target_price numeric(12,2) not null check (target_price >= 0),
+  market_id uuid references markets(id) on delete set null,
+  channel text,
+  active boolean not null default true,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists receipts (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete cascade,
+  merchant text,
+  purchased_at timestamptz,
+  currency text default 'INR',
+  subtotal numeric(12,2),
+  total numeric(12,2),
+  image_url text,
+  parse_status text default 'pending',
+  created_at timestamptz not null default now()
+);
+
+create table if not exists receipt_items (
+  id uuid primary key default gen_random_uuid(),
+  receipt_id uuid references receipts(id) on delete cascade,
+  product_id uuid references products(id) on delete set null,
+  description text not null,
+  quantity numeric(12,4),
+  unit text,
+  unit_price numeric(12,2),
+  line_total numeric(12,2)
+);
+
+create table if not exists product_reviews (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete cascade,
+  product_id uuid references products(id) on delete cascade,
+  rating integer check (rating between 1 and 5),
+  title text,
+  body text,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists platform_events (
+  id uuid primary key default gen_random_uuid(),
+  event_name text not null,
+  product_id uuid references products(id) on delete set null,
+  merchant_id uuid references merchants(id) on delete set null,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
+-- RLS baseline for user-owned tables.
+alter table profiles enable row level security;
+alter table favorite_products enable row level security;
+alter table shopping_lists enable row level security;
+alter table shopping_list_items enable row level security;
+alter table price_alerts enable row level security;
+alter table receipts enable row level security;
+alter table receipt_items enable row level security;
+alter table product_reviews enable row level security;
+
+create policy if not exists profiles_owner on profiles for all using (auth.uid() = id) with check (auth.uid() = id);
+create policy if not exists favorites_owner on favorite_products for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy if not exists lists_owner on shopping_lists for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy if not exists alerts_owner on price_alerts for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy if not exists receipts_owner on receipts for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
+create policy if not exists reviews_public_read on product_reviews for select using (true);
+create policy if not exists reviews_owner_write on product_reviews for insert with check (auth.uid() = user_id);
