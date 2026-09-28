@@ -1,0 +1,27 @@
+{
+  "version":"1.0.0",
+  "updatedOn":"2026-09-28",
+  "sources":[
+    {"id":"consumer-affairs","name":"Department of Consumer Affairs","channel":"official","status":"connected-snapshot","coverage":"Selected essential retail/wholesale references","priceHistory":true,"authRequired":false},
+    {"id":"data-gov-in","name":"data.gov.in / AGMARKNET dataset","channel":"mandi","status":"connector-ready","coverage":"Agricultural market observations","priceHistory":true,"authRequired":true},
+    {"id":"enam","name":"e-NAM","channel":"mandi","status":"connector-ready","coverage":"Agricultural market/trading context","priceHistory":true,"authRequired":false},
+    {"id":"amazon-in","name":"Amazon India","channel":"online","status":"authorized-api-required","coverage":"Product catalog and eligible offer data","history":true,"authRequired":true,"integration":"Creators API / Associates"},
+    {"id":"flipkart","name":"Flipkart","channel":"online","status":"authorized-feed-required","coverage":"Product/offer observations where permitted","history":true,"authRequired":true,"integration":"Affiliate/API/feed"},
+    {"id":"bigbasket","name":"BigBasket","channel":"online","status":"authorized-feed-required","coverage":"Grocery offers where permitted","history":true,"authRequired":true},
+    {"id":"jiomart","name":"JioMart","channel":"online","status":"authorized-feed-required","coverage":"Retail offers where permitted","history":true,"authRequired":true},
+    {"id":"blinkit","name":"Blinkit","channel":"online","status":"authorized-feed-required","coverage":"Quick-commerce offers where permitted","history":true,"authRequired":true},
+    {"id":"zepto","name":"Zepto","channel":"online","status":"authorized-feed-required","coverage":"Quick-commerce offers where permitted","history":true,"authRequired":true},
+    {"id":"swiggy-instamart","name":"Swiggy Instamart","channel":"online","status":"authorized-feed-required","coverage":"Quick-commerce offers where permitted","history":true,"authRequired":true},
+    {"id":"myntra","name":"Myntra","channel":"online","status":"authorized-feed-required","coverage":"Fashion catalog/offers where permitted","history":true,"authRequired":true},
+    {"id":"croma","name":"Croma","channel":"online","status":"authorized-feed-required","coverage":"Consumer electronics where permitted","history":true,"authRequired":true},
+    {"id":"reliance-digital","name":"Reliance Digital","channel":"online","status":"authorized-feed-required","coverage":"Electronics/appliances where permitted","history":true,"authRequired":true},
+    {"id":"dmart-ready","name":"DMart Ready","channel":"online","status":"authorized-feed-required","coverage":"Grocery/household where permitted","history":true,"authRequired":true},
+    {"id":"local-shops","name":"Verified Local Shops","channel":"local_shop","status":"community","coverage":"User/merchant submitted observations after verification","priceHistory":true,"authRequired":false}
+  ],
+  "rules":{
+    "display":"Show source, observation time, channel and verification state for every price.",
+    "online":"Only ingest data through documented APIs, affiliate programs, licensed feeds, permitted exports or user-provided links. Do not bypass access controls or protected pages.",
+    "history":"A historical series must be built from repeated dated observations; a current offer alone is not a history.",
+    "truth":"Catalog presence does not create a price."
+  }
+}
