@@ -191,20 +191,6 @@ create table if not exists product_variants (
 create index if not exists product_variants_search
   on product_variants using gin (to_tsvector('simple', coalesce(canonical_name,'') || ' ' || coalesce(brand,'') || ' ' || coalesce(variant,'')));
 
-create table if not exists merchants (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  channel text not null check (channel in ('online','local_shop')),
-  domain text,
-  city text,
-  district text,
-  state text,
-  latitude double precision,
-  longitude double precision,
-  verified boolean not null default false,
-  active boolean not null default true,
-  created_at timestamptz not null default now()
-);
 
 create table if not exists offers (
   id uuid primary key default gen_random_uuid(),
