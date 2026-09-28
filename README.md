@@ -45,24 +45,14 @@ See `SECURITY.md` for the defense-in-depth architecture and the boundary between
 
 ## Monetization model
 
-PriceAtlas can monetize without compromising price neutrality by separating user-visible price intelligence from clearly labeled commercial links and placements.
+PriceAtlas uses exactly two revenue channels:
 
-### Revenue channels
-1. Affiliate referrals: product cards can contain an "Open store" action using authorized Amazon India/Flipkart affiliate links and other merchant affiliate programs where available. Revenue is earned when a qualifying purchase is attributed to the affiliate account. Rates vary by category and can change.
-2. Display advertising: AdSense can monetize eligible pages once the site/account meets Google's requirements. Ads should not be placed next to a price verdict in a way that makes a commercial relationship look like evidence.
-3. Merchant subscriptions: verified local shops can pay for optional business features such as a profile, catalog import, analytics, offers and lead tools. Their paid status must never change the site's factual price evidence or ranking logic.
-4. Sponsored placements: clearly labeled sponsored offers can be sold, but sponsored content must remain visually distinct from evidence-based comparisons.
-5. Pro user subscription: optional features such as advanced alerts, larger shopping lists, exports, saved analysis, history depth and analytics can be packaged as a paid plan. Core public price evidence should remain accessible.
-6. B2B data/API: an API or dashboard can be sold to businesses that need normalized price observations, trend data, market comparisons and source metadata, subject to the licenses/terms of each underlying source.
+### 1. Affiliate commission
+PriceAtlas can send users to authorized merchant/affiliate links such as Amazon India and Flipkart. The site earns a referral/advertising fee when qualifying purchases are attributed to those links. Amazon requires an Associates account and current Creators API access for API-based product integrations; PA-API 5 has been deprecated. citeturn132989search1turn132989search7 Flipkart publishes category-specific affiliate rates and provides affiliate tools/APIs. citeturn132989search0turn132989search10
 
-### Example unit economics
-Assume 100,000 monthly visitors, 25% click-through to a merchant, and 2% of those clicks convert. That would be about 500 attributed orders. At an illustrative average commission of ₹40 per order, affiliate revenue would be about ₹20,000/month. This is only a scenario, not a forecast; actual conversion, basket size, commission rates and attribution vary by merchant and category.
+### 2. Google AdSense
+PriceAtlas can monetize eligible pages with Google AdSense. Google requires publishers to have their own original, high-quality content and meet AdSense policies; current eligibility guidance also requires the publisher to be 18 or over. citeturn132989search2turn132989search3
 
-A separate ad scenario of 1,000,000 monetized page impressions at an illustrative ₹80 RPM would be ₹80,000 gross ad revenue. Actual RPM varies substantially by audience, geography, ad demand, page type and policy compliance.
+No paid merchant listings, subscriptions, sponsored placements or other revenue channels are part of the PriceAtlas business model.
 
-### Product rules
-- Never sell a higher ranking in the neutral comparison result.
-- Label affiliate links and sponsored placements.
-- Keep commercial offers separate from source evidence.
-- Show source, observation time and verification state for price facts.
-- Never use one merchant's payment to manufacture or alter the price truth layer.
+Commercial links and ads must remain clearly separate from source evidence and price calculations. The price engine must not change a comparison result because a merchant pays an affiliate commission.
