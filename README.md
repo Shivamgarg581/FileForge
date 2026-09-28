@@ -42,3 +42,27 @@ The repository is currently configured around GitHub Pages. Deploy the `producti
 
 ## Security
 See `SECURITY.md` for the defense-in-depth architecture and the boundary between the static launch and future backend-only controls.
+
+## Monetization model
+
+PriceAtlas can monetize without compromising price neutrality by separating user-visible price intelligence from clearly labeled commercial links and placements.
+
+### Revenue channels
+1. Affiliate referrals: product cards can contain an "Open store" action using authorized Amazon India/Flipkart affiliate links and other merchant affiliate programs where available. Revenue is earned when a qualifying purchase is attributed to the affiliate account. Rates vary by category and can change.
+2. Display advertising: AdSense can monetize eligible pages once the site/account meets Google's requirements. Ads should not be placed next to a price verdict in a way that makes a commercial relationship look like evidence.
+3. Merchant subscriptions: verified local shops can pay for optional business features such as a profile, catalog import, analytics, offers and lead tools. Their paid status must never change the site's factual price evidence or ranking logic.
+4. Sponsored placements: clearly labeled sponsored offers can be sold, but sponsored content must remain visually distinct from evidence-based comparisons.
+5. Pro user subscription: optional features such as advanced alerts, larger shopping lists, exports, saved analysis, history depth and analytics can be packaged as a paid plan. Core public price evidence should remain accessible.
+6. B2B data/API: an API or dashboard can be sold to businesses that need normalized price observations, trend data, market comparisons and source metadata, subject to the licenses/terms of each underlying source.
+
+### Example unit economics
+Assume 100,000 monthly visitors, 25% click-through to a merchant, and 2% of those clicks convert. That would be about 500 attributed orders. At an illustrative average commission of ₹40 per order, affiliate revenue would be about ₹20,000/month. This is only a scenario, not a forecast; actual conversion, basket size, commission rates and attribution vary by merchant and category.
+
+A separate ad scenario of 1,000,000 monetized page impressions at an illustrative ₹80 RPM would be ₹80,000 gross ad revenue. Actual RPM varies substantially by audience, geography, ad demand, page type and policy compliance.
+
+### Product rules
+- Never sell a higher ranking in the neutral comparison result.
+- Label affiliate links and sponsored placements.
+- Keep commercial offers separate from source evidence.
+- Show source, observation time and verification state for price facts.
+- Never use one merchant's payment to manufacture or alter the price truth layer.
