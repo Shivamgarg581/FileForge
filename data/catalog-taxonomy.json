@@ -1,0 +1,44 @@
+{
+  "version": "1.0.0",
+  "scope": "India launch catalog taxonomy",
+  "description": "Search catalog architecture for 100,000+ products. Product existence is not a price claim; only records with sourced observations receive prices.",
+  "categories": [
+    {"slug":"grocery","name":"Grocery","subcategories":["rice","wheat-flour","pulses","sugar-sweeteners","salt","oils","spices","dry-fruits","nuts","cereals","breakfast","instant-food","sauces","pickles","packaged-food","baking","tea-coffee","beverages"]},
+    {"slug":"vegetables","name":"Vegetables","subcategories":["root","leafy","gourds","beans","cruciferous","alliums","seasonal","herbs","mushrooms"]},
+    {"slug":"fruits","name":"Fruits","subcategories":["tropical","citrus","berries","melons","stone-fruit","dry-fruit","seasonal"]},
+    {"slug":"dairy","name":"Dairy","subcategories":["milk","curd-yogurt","paneer","cheese","butter","ghee","cream","milk-powder"]},
+    {"slug":"bakery-snacks","name":"Bakery & Snacks","subcategories":["bread","biscuits","cookies","cakes","namkeen","chips","chocolate","confectionery"]},
+    {"slug":"meat-seafood","name":"Meat & Seafood","subcategories":["chicken","mutton","fish","seafood","eggs","frozen"]},
+    {"slug":"household","name":"Household","subcategories":["laundry","cleaning","dishwash","paper","kitchen","storage","pest-control","lighting"]},
+    {"slug":"personal-care","name":"Personal Care","subcategories":["bath","hair-care","oral-care","skin-care","grooming","fragrance","feminine-care"]},
+    {"slug":"baby-care","name":"Baby Care","subcategories":["diapers","wipes","feeding","bath","skin","nutrition"]},
+    {"slug":"pet-care","name":"Pet Care","subcategories":["dog","cat","bird","fish","small-animal","grooming"]},
+    {"slug":"medicines-health","name":"Medicines & Health","subcategories":["otc","prescription","first-aid","devices","wellness","medical-supplies"]},
+    {"slug":"stationery-books","name":"Stationery & Books","subcategories":["school","office","art","books","printing","craft"]},
+    {"slug":"clothing","name":"Clothing","subcategories":["mens","womens","kids","ethnic","innerwear","winterwear","uniforms"]},
+    {"slug":"footwear","name":"Footwear","subcategories":["mens","womens","kids","sports","formal","sandals","slippers"]},
+    {"slug":"electronics","name":"Electronics","subcategories":["mobiles","tablets","laptops","computers","tv","audio","cameras","wearables","networking","storage"]},
+    {"slug":"appliances","name":"Home Appliances","subcategories":["refrigerator","washing-machine","air-conditioner","cooler","fan","microwave","mixer","geyser","vacuum"]},
+    {"slug":"mobile-accessories","name":"Mobile Accessories","subcategories":["cases","screen-protection","chargers","cables","power-banks","audio","stands"]},
+    {"slug":"automotive","name":"Automotive","subcategories":["cars","motorcycles","scooters","ev","bicycles","tyres","batteries","parts","accessories"]},
+    {"slug":"fuel","name":"Fuel & Energy","subcategories":["petrol","diesel","cng","lpg","electricity","solar"]},
+    {"slug":"construction","name":"Construction & Hardware","subcategories":["cement","steel","bricks","sand","aggregates","tiles","paint","plumbing","electrical","tools","plywood"]},
+    {"slug":"gardening-agriculture","name":"Gardening & Agriculture","subcategories":["seeds","fertilizer","pesticides","soil","pots","tools","irrigation","farm-inputs"]},
+    {"slug":"furniture","name":"Furniture & Home","subcategories":["beds","sofa","tables","chairs","storage","kitchen","mattress","decor"]},
+    {"slug":"sports","name":"Sports & Fitness","subcategories":["cricket","football","badminton","gym","cycling","yoga","outdoor"]},
+    {"slug":"travel","name":"Travel & Luggage","subcategories":["bags","suitcases","travel-accessories","camping"]},
+    {"slug":"office-business","name":"Office & Business","subcategories":["printer","toner","stationery","furniture","supplies","packaging"]},
+    {"slug":"services","name":"Services","subcategories":["repair","plumbing","electrician","salon","vehicle-service","courier","internet","local-services"]}
+  ],
+  "catalog_growth": {
+    "target_records": 100000,
+    "expansion_sources": [
+      "licensed manufacturer/catalog feeds",
+      "approved public datasets",
+      "verified merchant submissions",
+      "verified community observations",
+      "barcode/GTIN mappings where licensing permits"
+    ],
+    "price_rule": "Catalog membership does not create a price. A price requires a source, observation date, unit, market/context and verification state."
+  }
+}
