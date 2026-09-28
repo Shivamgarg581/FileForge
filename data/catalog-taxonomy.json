@@ -493,5 +493,444 @@
       "DMart Ready"
     ],
     "disclaimer": "Only use data obtained under the source's terms, APIs, feeds, affiliate programs or permitted user-provided URLs. Do not scrape protected pages against their terms."
+  },
+  "launch_categories": [
+    {
+      "slug": "grocery",
+      "name": "Grocery",
+      "subcategories": [
+        "rice",
+        "wheat-flour",
+        "pulses",
+        "sugar-sweeteners",
+        "salt",
+        "oils",
+        "spices",
+        "dry-fruits",
+        "nuts",
+        "cereals",
+        "breakfast",
+        "instant-food",
+        "sauces",
+        "pickles",
+        "packaged-food",
+        "baking",
+        "tea-coffee",
+        "beverages"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "vegetables",
+      "name": "Vegetables",
+      "subcategories": [
+        "root",
+        "leafy",
+        "gourds",
+        "beans",
+        "cruciferous",
+        "alliums",
+        "seasonal",
+        "herbs",
+        "mushrooms"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "fruits",
+      "name": "Fruits",
+      "subcategories": [
+        "tropical",
+        "citrus",
+        "berries",
+        "melons",
+        "stone-fruit",
+        "dry-fruit",
+        "seasonal"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "dairy",
+      "name": "Dairy",
+      "subcategories": [
+        "milk",
+        "curd-yogurt",
+        "paneer",
+        "cheese",
+        "butter",
+        "ghee",
+        "cream",
+        "milk-powder"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "bakery-snacks",
+      "name": "Bakery & Snacks",
+      "subcategories": [
+        "bread",
+        "biscuits",
+        "cookies",
+        "cakes",
+        "namkeen",
+        "chips",
+        "chocolate",
+        "confectionery"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "meat-seafood",
+      "name": "Meat & Seafood",
+      "subcategories": [
+        "chicken",
+        "mutton",
+        "fish",
+        "seafood",
+        "eggs",
+        "frozen"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "household",
+      "name": "Household",
+      "subcategories": [
+        "laundry",
+        "cleaning",
+        "dishwash",
+        "paper",
+        "kitchen",
+        "storage",
+        "pest-control",
+        "lighting"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "personal-care",
+      "name": "Personal Care",
+      "subcategories": [
+        "bath",
+        "hair-care",
+        "oral-care",
+        "skin-care",
+        "grooming",
+        "fragrance",
+        "feminine-care"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "baby-care",
+      "name": "Baby Care",
+      "subcategories": [
+        "diapers",
+        "wipes",
+        "feeding",
+        "bath",
+        "skin",
+        "nutrition"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "pet-care",
+      "name": "Pet Care",
+      "subcategories": [
+        "dog",
+        "cat",
+        "bird",
+        "fish",
+        "small-animal",
+        "grooming"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "medicines-health",
+      "name": "Medicines & Health",
+      "subcategories": [
+        "otc",
+        "prescription",
+        "first-aid",
+        "devices",
+        "wellness",
+        "medical-supplies"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "stationery-books",
+      "name": "Stationery & Books",
+      "subcategories": [
+        "school",
+        "office",
+        "art",
+        "books",
+        "printing",
+        "craft"
+      ],
+      "priority": "high",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "clothing",
+      "name": "Clothing",
+      "subcategories": [
+        "mens",
+        "womens",
+        "kids",
+        "ethnic",
+        "innerwear",
+        "winterwear",
+        "uniforms"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "footwear",
+      "name": "Footwear",
+      "subcategories": [
+        "mens",
+        "womens",
+        "kids",
+        "sports",
+        "formal",
+        "sandals",
+        "slippers"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "electronics",
+      "name": "Electronics",
+      "subcategories": [
+        "mobiles",
+        "tablets",
+        "laptops",
+        "computers",
+        "tv",
+        "audio",
+        "cameras",
+        "wearables",
+        "networking",
+        "storage"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "appliances",
+      "name": "Home Appliances",
+      "subcategories": [
+        "refrigerator",
+        "washing-machine",
+        "air-conditioner",
+        "cooler",
+        "fan",
+        "microwave",
+        "mixer",
+        "geyser",
+        "vacuum"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "mobile-accessories",
+      "name": "Mobile Accessories",
+      "subcategories": [
+        "cases",
+        "screen-protection",
+        "chargers",
+        "cables",
+        "power-banks",
+        "audio",
+        "stands"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "automotive",
+      "name": "Automotive",
+      "subcategories": [
+        "cars",
+        "motorcycles",
+        "scooters",
+        "ev",
+        "bicycles",
+        "tyres",
+        "batteries",
+        "parts",
+        "accessories"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "fuel",
+      "name": "Fuel & Energy",
+      "subcategories": [
+        "petrol",
+        "diesel",
+        "cng",
+        "lpg",
+        "electricity",
+        "solar"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "construction",
+      "name": "Construction & Hardware",
+      "subcategories": [
+        "cement",
+        "steel",
+        "bricks",
+        "sand",
+        "aggregates",
+        "tiles",
+        "paint",
+        "plumbing",
+        "electrical",
+        "tools",
+        "plywood"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "gardening-agriculture",
+      "name": "Gardening & Agriculture",
+      "subcategories": [
+        "seeds",
+        "fertilizer",
+        "pesticides",
+        "soil",
+        "pots",
+        "tools",
+        "irrigation",
+        "farm-inputs"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "furniture",
+      "name": "Furniture & Home",
+      "subcategories": [
+        "beds",
+        "sofa",
+        "tables",
+        "chairs",
+        "storage",
+        "kitchen",
+        "mattress",
+        "decor"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "sports",
+      "name": "Sports & Fitness",
+      "subcategories": [
+        "cricket",
+        "football",
+        "badminton",
+        "gym",
+        "cycling",
+        "yoga",
+        "outdoor"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "travel",
+      "name": "Travel & Luggage",
+      "subcategories": [
+        "bags",
+        "suitcases",
+        "travel-accessories",
+        "camping"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "office-business",
+      "name": "Office & Business",
+      "subcategories": [
+        "printer",
+        "toner",
+        "stationery",
+        "furniture",
+        "supplies",
+        "packaging"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    },
+    {
+      "slug": "services",
+      "name": "Services",
+      "subcategories": [
+        "repair",
+        "plumbing",
+        "electrician",
+        "salon",
+        "vehicle-service",
+        "courier",
+        "internet",
+        "local-services"
+      ],
+      "priority": "standard",
+      "catalog_target": 3846
+    }
+  ],
+  "ingestion": {
+    "product_catalog_layers": [
+      "canonical products",
+      "brand and model variants",
+      "pack sizes and units",
+      "barcodes/GTINs where licensed",
+      "merchant catalog observations"
+    ],
+    "online_history_channels": [
+      "Amazon India",
+      "Flipkart",
+      "BigBasket",
+      "JioMart",
+      "Blinkit",
+      "Zepto",
+      "Swiggy Instamart",
+      "Myntra",
+      "Croma",
+      "Reliance Digital"
+    ],
+    "local_layers": [
+      "verified shop reports",
+      "market/mandi observations",
+      "merchant submissions"
+    ],
+    "policy": "Never copy protected catalog or price data without permission. Prefer APIs, affiliate feeds, licensed datasets, permitted user-supplied URLs and public/open data."
   }
 }
